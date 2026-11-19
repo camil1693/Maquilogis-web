@@ -19,265 +19,408 @@
 <link rel="apple-touch-icon" href="logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --turquesa:#0fa99d;      /* tono del logo: solo decorativo o sobre fondo oscuro */
-  --petroleo:#0b7f76;      /* acciones: blanco sobre este tono da 4,9:1 */
-  --petroleo-osc:#096f67;  /* texto y hover sobre fondo claro */
-  --noche:#0a3532;         /* superficies oscuras */
+  --turquesa:#0fa99d;
+  --petroleo:#0b7f76;
+  --petroleo-osc:#096f67;
+  --noche:#0a3532;
   --noche-2:#0e4540;
-  --gris:#898a8c;          /* gris del logo: bordes y adornos */
+  --tinta:#062321;         /* texto sobre turquesa */
+  --menta:#8fe9e0;
+  --gris:#898a8c;
+  --gris-osc:#4d4f52;
+  --claro:#edf3f2;
   --texto:#16282a;
-  --texto-suave:#4f585c;
-  --tinte:#eef7f6;
-  --linea:#d6e3e2;
+  --suave:#43525a;
   --blanco:#fff;
-  --radio:14px;
-  --ancho:1180px;
-  --alto-cab:68px;
+  --ancho:1240px;
+  --alto-cab:64px;
+  --d:clamp(16px,2.8vw,40px);   /* caída de las diagonales */
+  --disp:Montserrat,"Segoe UI",Arial,sans-serif;
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
-body{margin:0;font-family:Roboto,-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;font-size:17px;line-height:1.6;color:var(--texto);background:var(--blanco);overflow-x:hidden}
+body{margin:0;font-family:Roboto,-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;font-size:17px;line-height:1.6;color:var(--texto);background:#fff}
 img,svg{display:block;max-width:100%}
 a{color:inherit}
 h1,h2,h3,p,ul,ol{margin:0}
 ul,ol{padding:0;list-style:none}
+button{font:inherit;color:inherit}
 :focus-visible{outline:3px solid var(--turquesa);outline-offset:3px;border-radius:4px}
-.oscuro :focus-visible,.cab :focus-visible{outline-color:#7fe3da}
+.oscuro :focus-visible,.cab :focus-visible,.hero :focus-visible,.final :focus-visible,.pie :focus-visible,.proceso :focus-visible{outline-color:var(--menta)}
+.proceso :focus-visible{outline-color:var(--tinta)}
 .salto{position:absolute;left:12px;top:-60px;background:var(--noche);color:#fff;padding:10px 16px;border-radius:8px;z-index:100;text-decoration:none}
 .salto:focus{top:12px}
-.cont{width:100%;max-width:var(--ancho);margin:0 auto;padding:0 20px}
-section[id]{scroll-margin-top:calc(var(--alto-cab) + 8px)}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.cont{width:100%;max-width:var(--ancho);margin:0 auto;padding:0 20px;position:relative}
+main,.pie{overflow-x:clip}
+section[id],div[id]{scroll-margin-top:calc(var(--alto-cab) + 8px)}
+.i{width:1em;height:1em;flex:none;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 
 /* tipografía */
-.sobre{display:inline-flex;align-items:center;gap:10px;font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--petroleo-osc)}
-.sobre::before{content:"";width:28px;height:3px;background:var(--turquesa);border-radius:2px}
-.oscuro .sobre{color:#8fe9e0}
-h2{font-size:clamp(28px,4.2vw,42px);line-height:1.15;font-weight:700;letter-spacing:-.02em;color:var(--noche);margin-top:14px;max-width:20ch}
-.oscuro h2{color:#fff}
-.intro{margin-top:18px;max-width:62ch;color:var(--texto-suave);font-size:18px}
-.oscuro .intro{color:#c3dedb}
-.sec{padding:clamp(64px,9vw,112px) 0}
+.disp,h1,h2,h3{font-family:var(--disp)}
+.sobre{display:inline-flex;align-items:center;gap:10px;font-family:var(--disp);font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--petroleo-osc)}
+.sobre::before{content:"";width:30px;height:4px;background:var(--turquesa);border-radius:2px}
+.hero .sobre,.portal .sobre,.somos .panel .sobre{color:var(--menta)}.final .sobre{color:#fff}
+.proceso .sobre{color:var(--tinta)}
+.proceso .sobre::before{background:var(--tinta)}
+h2{font-size:clamp(30px,3.9vw,48px);line-height:1.03;font-weight:800;letter-spacing:-.035em;color:var(--noche);margin-top:14px}
+h2 em{font-style:normal;background:linear-gradient(transparent 64%,rgba(15,169,157,.38) 64% 90%,transparent 90%)}
+.hero h2,.portal h2,.final h2{color:#fff}
+.portal h2 em,.final h2 em{background:linear-gradient(transparent 64%,rgba(143,233,224,.42) 64% 90%,transparent 90%)}
+.proceso h2{color:var(--tinta)}
+.proceso h2 em{background:linear-gradient(transparent 64%,rgba(255,255,255,.5) 64% 90%,transparent 90%)}
+.intro{margin-top:16px;max-width:56ch;color:var(--suave);font-size:18px}
+.portal .intro{color:#cfe6e3}.final .intro{color:#fff}
+.banda{position:relative;isolation:isolate}
+.banda::before{content:"";position:absolute;inset:0;background:var(--bg);clip-path:var(--forma,none);z-index:-1}
+.deco{position:absolute;inset:0;pointer-events:none;overflow:hidden;clip-path:var(--forma,none);z-index:-1}
+.par{position:absolute;will-change:transform;transform:translate3d(0,calc(var(--py,0)*1px),0) rotate(calc(var(--pr,0)*1deg))}
+.gira{animation:gira 120s linear infinite}
+.gira.rev-g{animation-direction:reverse}
+.gira.lento{animation-duration:200s}
+@keyframes gira{to{transform:rotate(360deg)}}
+.deco svg{width:100%;height:100%;overflow:visible}
 
 /* botones */
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:12px 24px;border-radius:10px;font:inherit;font-weight:500;font-size:16px;text-decoration:none;border:2px solid transparent;cursor:pointer;transition:background .2s,color .2s,border-color .2s,transform .2s}
-.btn svg{width:18px;height:18px;flex:none}
-.btn-p{background:var(--petroleo);color:#fff}
-.btn-p:hover{background:var(--petroleo-osc)}
-.btn-s{background:transparent;color:var(--noche);border-color:var(--noche)}
-.btn-s:hover{background:var(--noche);color:#fff}
-.btn-c{background:#fff;color:var(--noche)}
-.btn-c:hover{background:var(--tinte)}
-.btn-g{background:transparent;color:#fff;border-color:#7fb5af}
-.btn-g:hover{background:rgba(255,255,255,.1);border-color:#fff}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:12px;min-height:52px;padding:12px 26px;border-radius:6px;font-family:var(--disp);font-weight:700;font-size:16px;letter-spacing:-.005em;text-decoration:none;border:2px solid transparent;cursor:pointer;transition:background .2s,color .2s,border-color .2s}
+.btn .i{width:20px;height:20px;transition:transform .25s}
+.btn:hover .i,.btn:focus-visible .i{transform:translateX(6px)}
+.btn-t{background:var(--turquesa);color:var(--tinta)}
+.btn-t:hover{background:#fff}
+.btn-g{background:transparent;color:#fff;border-color:rgba(255,255,255,.55)}
+.btn-g:hover{background:#fff;color:var(--noche);border-color:#fff}
+.btn-b{background:#fff;color:var(--noche)}
+.btn-b:hover{background:var(--noche);color:#fff}
 
 /* encabezado */
-.cab{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.94);backdrop-filter:saturate(1.4) blur(10px);border-bottom:1px solid var(--linea)}
+.cab{position:sticky;top:0;z-index:50;background:rgba(10,53,50,.96);backdrop-filter:saturate(1.4) blur(10px);color:#fff}
 .cab .cont{display:flex;align-items:center;justify-content:space-between;height:var(--alto-cab);gap:16px}
 .marca{display:flex;align-items:center;gap:12px;text-decoration:none}
-.marca img{width:44px;height:44px}
-.marca b{font-size:20px;font-weight:700;letter-spacing:-.01em;color:var(--noche)}
+.marca img{width:42px;height:42px;background:#fff;border-radius:50%;padding:2px}
+.marca b{font-family:var(--disp);font-size:20px;font-weight:800;letter-spacing:-.02em;color:#fff}
 .nav{display:none}
-.nav a{display:block;padding:10px 4px;text-decoration:none;font-weight:500;font-size:16px;color:var(--texto)}
-.nav a:hover{color:var(--petroleo-osc)}
+.nav a{display:block;padding:10px 4px;text-decoration:none;font-weight:500;font-size:16px;color:#dcefed;position:relative}
+.nav a::after{content:"";position:absolute;left:4px;right:4px;bottom:4px;height:2px;background:var(--turquesa);transform:scaleX(0);transform-origin:left;transition:transform .25s}
+.nav a:hover{color:#fff}
+.nav a:hover::after{transform:scaleX(1)}
 .cab-der{display:flex;align-items:center;gap:10px}
-.cab .btn{min-height:44px;padding:8px 18px}
-.burger{width:46px;height:46px;border:1px solid var(--linea);background:#fff;border-radius:10px;display:grid;place-items:center;cursor:pointer;color:var(--noche)}
+.cab .btn{min-height:44px;padding:8px 20px;font-size:15px}
+.burger{width:46px;height:46px;border:1px solid rgba(255,255,255,.35);background:transparent;border-radius:8px;display:grid;place-items:center;cursor:pointer;color:#fff}
 .burger svg{width:22px;height:22px}
 .burger .x{display:none}
 .burger[aria-expanded="true"] .x{display:block}
 .burger[aria-expanded="true"] .tres{display:none}
-html.js .nav{display:none}
-html.js .nav.abierto{display:block;position:absolute;top:var(--alto-cab);left:0;right:0;background:#fff;border-bottom:1px solid var(--linea);padding:8px 20px 18px;box-shadow:0 14px 30px rgba(10,53,50,.12)}
-html.js .nav.abierto a{padding:14px 4px;border-bottom:1px solid var(--tinte);font-size:18px}
+html.js .nav.abierto{display:block;position:absolute;top:var(--alto-cab);left:0;right:0;background:var(--noche);border-top:1px solid #1d5650;padding:8px 20px 18px;box-shadow:0 18px 30px rgba(0,0,0,.3)}
+html.js .nav.abierto a{padding:14px 4px;border-bottom:1px solid #1d5650;font-size:18px;min-height:48px}
+html.js .nav.abierto a::after{display:none}
 html:not(.js) .nav{display:block;position:static;width:100%}
 html:not(.js) .cab .cont{flex-wrap:wrap;height:auto;padding-top:10px;padding-bottom:10px}
 html:not(.js) .burger{display:none}
 
 /* portada */
-.portada{position:relative;background:linear-gradient(180deg,#f4fbfa 0%,#fff 100%);overflow:hidden;padding:clamp(48px,8vw,104px) 0 clamp(56px,8vw,96px)}
-.portada .cont{display:grid;gap:48px;position:relative}
-.portada h1{font-size:clamp(38px,6.4vw,68px);line-height:1.06;font-weight:700;letter-spacing:-.03em;color:var(--noche);margin-top:18px;max-width:16ch}
-.portada h1 em{font-style:normal;color:var(--petroleo)}
-.valor{margin-top:22px;font-size:clamp(18px,2.2vw,21px);max-width:46ch;color:var(--texto-suave)}
-.acciones{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
-.pruebas{display:grid;gap:12px;margin-top:40px;padding-top:28px;border-top:1px solid var(--linea)}
-.pruebas li{display:flex;gap:12px;align-items:flex-start;font-size:16px;font-weight:500;color:var(--noche)}
-.pruebas svg{width:22px;height:22px;flex:none;color:var(--petroleo);margin-top:2px}
-.arte{position:relative;width:min(100%,460px);aspect-ratio:1;margin:0 auto}
-.arte svg.g{position:absolute;inset:0;width:100%;height:100%}
-.arte .g1{animation:gira 90s linear infinite;transform-origin:50% 50%}
-.arte .g2{animation:gira 60s linear infinite reverse;transform-origin:50% 50%}
-.arte .sello{position:absolute;left:50%;top:50%;width:46%;aspect-ratio:1;transform:translate(-50%,-50%);background:#fff;border-radius:50%;box-shadow:0 20px 50px rgba(10,53,50,.16);display:grid;place-items:center}
-.arte .sello img{width:84%;height:84%}
-.etq{position:absolute;background:#fff;border:1px solid var(--linea);border-radius:999px;padding:8px 16px;font-size:14px;font-weight:500;color:var(--noche);box-shadow:0 8px 22px rgba(10,53,50,.1);white-space:nowrap;display:none}
+.hero{--bg:var(--noche);--forma:polygon(0 0,100% 0,100% calc(100% - var(--d)),0 100%);color:#fff;padding:clamp(28px,3.4vw,48px) 0 calc(var(--d) + 58px)}
+.hero .cont{display:block}
+.hero h1{font-size:clamp(42px,5.2vw,74px);line-height:1;font-weight:800;letter-spacing:-.04em;margin-top:14px;max-width:11.5em}
+.hero h1 em{font-style:normal;color:var(--turquesa);position:relative;display:inline-block}
+.subr{position:absolute;left:0;bottom:-.1em;width:100%;height:.16em;overflow:visible}
+.subr path{fill:none;stroke:var(--turquesa);stroke-width:5;stroke-linecap:round;stroke-dasharray:1;stroke-dashoffset:0;animation:traza 1.2s .5s cubic-bezier(.6,0,.2,1) both}
+@keyframes traza{from{stroke-dashoffset:1}to{stroke-dashoffset:0}}
+.valor{margin-top:20px;font-size:clamp(17px,1.5vw,20px);max-width:44em;color:#cfe6e3;max-width:35em}
+.acciones{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px}
+.claves{display:flex;flex-wrap:wrap;gap:10px 30px;margin-top:26px;font-size:15px;font-weight:500;color:#e5f3f1}
+.claves li{display:flex;align-items:center;gap:10px}
+.claves .i{width:22px;height:22px;color:var(--turquesa)}
+.arte{position:absolute;right:-150px;top:50%;width:min(760px,60vw);aspect-ratio:1;transform:translateY(-52%);z-index:0}
+.arte .par{inset:0}
+.arte .g{position:absolute;inset:0;width:100%;height:100%}
+.sello{position:absolute;left:50%;top:50%;width:37%;aspect-ratio:1;transform:translate(-50%,-50%);background:#fff;border-radius:50%;display:grid;place-items:center;box-shadow:0 0 0 14px rgba(15,169,157,.16),0 0 0 34px rgba(15,169,157,.08)}
+.sello img{width:84%;height:84%}
+.etq{position:absolute;border:1px solid rgba(143,233,224,.6);background:rgba(10,53,50,.82);color:#fff;border-radius:999px;padding:7px 16px;font-size:14px;font-weight:500;white-space:nowrap;display:none;animation:flota 6s ease-in-out infinite}
 .etq::before{content:"";display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--turquesa);margin-right:8px}
-@keyframes gira{to{transform:rotate(360deg)}}
+.etq:nth-of-type(2){animation-delay:-2s}.etq:nth-of-type(3){animation-delay:-4s}
+@keyframes flota{50%{transform:translateY(-10px)}}
+.hero .cont>div{position:relative;z-index:1}
+.puntos{position:absolute;width:300px;height:200px;background-image:radial-gradient(rgba(143,233,224,.35) 1.6px,transparent 1.8px);background-size:20px 20px;-webkit-mask-image:linear-gradient(135deg,#000,transparent 80%);mask-image:linear-gradient(135deg,#000,transparent 80%)}
 
-/* quiénes somos */
+/* cinta en marquesina */
+.cinta-wrap{position:relative;z-index:6;height:0}
+.cinta{position:absolute;left:-3%;width:106%;top:-52px;height:60px;background:var(--turquesa);color:var(--tinta);transform:rotate(-1.6deg);transform:rotate(calc(atan2(var(--d),100vw)*-1));overflow:hidden;display:flex;align-items:center;box-shadow:0 10px 24px rgba(0,0,0,.18)}
+.cinta::after{content:"";position:absolute;left:0;right:0;bottom:5px;height:3px;background:repeating-linear-gradient(90deg,rgba(6,35,33,.55) 0 14px,transparent 14px 28px)}
+.pista{display:flex;flex:none;white-space:nowrap;animation:marquesina 44s linear infinite;will-change:transform}
+.pista ul{display:flex;align-items:center;flex:none}
+.pista li{display:flex;align-items:center;font-family:var(--disp);font-weight:800;font-size:15px;letter-spacing:.07em;text-transform:uppercase}
+.pista li .i{width:22px;height:22px;margin:0 28px;stroke-width:2.2}
+.cinta.pausa .pista,.cinta:hover .pista{animation-play-state:paused}
+@keyframes marquesina{to{transform:translateX(-50%)}}
+.pausar{position:absolute;right:calc(3% + 14px);top:50%;transform:translateY(-50%);width:44px;height:44px;border-radius:50%;border:0;background:var(--noche);color:var(--menta);display:grid;place-items:center;cursor:pointer;z-index:2}
+.pausar .i{width:20px;height:20px}
+.pausar .play{display:none}
+.pausar[aria-pressed="true"] .play{display:block}
+.pausar[aria-pressed="true"] .pausa-i{display:none}
+.pausar:focus-visible{outline-color:#fff}
+
+/* quiénes somos + qué incluye */
+.somos{z-index:3;padding:calc(var(--d) + 40px) 0 36px}
 .somos .cont{display:grid;gap:44px}
-.somos .texto p+p{margin-top:16px}
-.somos .texto p{color:var(--texto-suave);font-size:18px;max-width:58ch}
-.pilares{display:grid;gap:16px}
-.pilar{padding:24px;border:1px solid var(--linea);border-left:4px solid var(--turquesa);border-radius:var(--radio);background:#fff}
-.pilar h3{font-size:19px;color:var(--noche);font-weight:700}
-.pilar p{margin-top:6px;font-size:16px;color:var(--texto-suave)}
+.somos .texto p{font-size:16.5px;line-height:1.5;color:var(--suave);max-width:38em}
+.somos .texto p+p{margin-top:14px}
+.somos h2{max-width:16em}
+.pilares{display:grid;gap:18px;margin-top:22px}
+.pilar{border-top:4px solid var(--turquesa);padding-top:12px}
+.pilar h3{font-size:17px;font-weight:800;letter-spacing:-.01em;color:var(--noche);line-height:1.2}
+.pilar p{margin-top:6px;font-size:15px!important;line-height:1.5;color:var(--suave)}
+.somos .panel{position:relative;color:#fff;padding:38px 28px 44px;margin:0 -20px;margin-bottom:-52px;z-index:2}
+.somos .panel::before{content:"";position:absolute;inset:0;background:var(--noche);z-index:-1;clip-path:polygon(0 0,calc(100% - 44px) 0,100% 44px,100% 100%,0 100%)}
+.panel .marca-logo{position:absolute;right:-60px;bottom:-60px;width:300px;opacity:.07;filter:brightness(0) invert(1);z-index:-1;pointer-events:none}
+.panel h3{font-size:clamp(24px,2.5vw,32px);line-height:1.08;font-weight:800;letter-spacing:-.03em;margin-top:12px;max-width:14em}
+.inc{display:grid;gap:22px 28px;margin-top:26px}
+.inc li{position:relative;padding-left:58px;min-height:44px}
+.inc li::before{content:"";position:absolute;left:0;top:0;width:44px;height:44px;border-radius:50%;background:var(--turquesa) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23062321' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5.5 12.5l4.5 4.5 8.500-9.500'/%3E%3C/svg%3E") center/24px no-repeat}
+.inc b{display:block;font-family:var(--disp);font-size:18px;font-weight:700;line-height:1.25;padding-top:2px}
+.inc p,.inc ul{margin-top:4px;font-size:15px;color:#cfe6e3;line-height:1.45}
+.inc ul li{padding-left:14px;min-height:0;margin-top:2px}
+.inc ul li::before{width:6px;height:6px;left:0;top:.62em;background:var(--menta);border-radius:50%}
+.somos .deco .par{left:-220px;bottom:-240px;width:520px;height:520px;opacity:.9}
 
 /* servicios */
-.servicios{background:var(--tinte)}
-.rejilla{display:grid;gap:20px;margin-top:48px}
-.lin{background:#fff;border:1px solid var(--linea);border-radius:var(--radio);padding:28px;display:flex;flex-direction:column;transition:transform .25s,box-shadow .25s,border-color .25s}
-.lin:hover{transform:translateY(-3px);box-shadow:0 18px 40px rgba(10,53,50,.1);border-color:#b7d5d2}
-.ico{width:52px;height:52px;border-radius:12px;background:var(--noche);color:#fff;display:grid;place-items:center;flex:none}
-.ico svg{width:28px;height:28px}
-.lin h3{margin-top:20px;font-size:22px;line-height:1.2;color:var(--noche);font-weight:700;letter-spacing:-.01em}
-.lin .resumen{margin-top:8px;font-size:16px;color:var(--texto-suave)}
-.lin ul{margin-top:18px;padding-top:16px;border-top:1px solid var(--linea);display:grid;gap:9px}
-.lin li{position:relative;padding-left:22px;font-size:16px}
-.lin li::before{content:"";position:absolute;left:2px;top:.62em;width:9px;height:9px;border-radius:50%;background:var(--turquesa)}
-.lin.cons{grid-column:1/-1;background:linear-gradient(135deg,#096f67,#0a3532);border-color:#096f67;color:#fff}
-.lin.cons h3{color:#fff}
-.lin.cons .resumen{color:#d7efec}
-.lin.cons .ico{background:#fff;color:var(--noche)}
-.lin.cons ul{border-top-color:#3f8f88}
-.lin.cons li{color:#fff}
-.lin.cons li::before{background:#8fe9e0}
-.lin.modal{background:var(--noche);border-color:var(--noche);color:#fff}
-.lin.modal h3{color:#fff}
-.lin.modal .resumen{color:#c3dedb}
-.lin.modal .ico{background:var(--turquesa);color:var(--noche)}
-.lin.modal ul{border-top-color:#2c5a56}
-.lin.modal li{color:#e5f3f1}
+.servicios{--bg:var(--claro);--forma:polygon(0 0,100% var(--d),100% 100%,0 100%);padding:calc(var(--d) + 48px) 0 56px}
+.servicios .cab-sec{display:grid;gap:12px 48px}.servicios h2{max-width:none}
+@media (min-width:900px){.servicios h2{font-size:clamp(30px,3.4vw,44px)}.servicios .cab-sec{grid-template-columns:2.3fr 1fr;align-items:end}.servicios .cab-sec .sobre{grid-column:1/-1}.servicios .intro{margin-top:0}.servicios h2{margin-top:0}}
+.servicios .intro{max-width:46ch}
+.explora{margin-top:28px}
+.servicios .deco .par{right:-200px;top:-120px;width:560px;height:560px}
+.lin-btn{display:flex;align-items:center;gap:16px;width:100%;background:none;border:0;border-bottom:2px solid rgba(10,53,50,.14);padding:0 12px 0 0;cursor:pointer;text-align:left;color:var(--noche);transition:transform .3s,background-color .25s}
+.lin-btn .num{font-family:var(--disp);font-weight:800;font-size:38px;line-height:1;color:transparent;-webkit-text-stroke:1.5px #6b6d70;min-width:64px;transition:color .25s,-webkit-text-stroke-color .25s}
+.lin-btn .nom{font-family:var(--disp);font-weight:700;font-size:20px;line-height:1.15;flex:1;letter-spacing:-.015em}
+.lin-btn .fl{width:26px;height:26px;opacity:0;transform:translateX(-12px);transition:opacity .25s,transform .25s;color:var(--petroleo)}
+.linea.on .lin-btn .num{color:var(--petroleo);-webkit-text-stroke-color:var(--petroleo)}
+.linea.on .lin-btn .fl,.lin-btn:hover .fl{opacity:1;transform:none}
+.lin-btn:hover .num{-webkit-text-stroke-color:var(--petroleo)}
+.linea.k .lin-btn{border-bottom-color:var(--turquesa);border-bottom-width:4px}
+.linea.k .lin-btn .num{-webkit-text-stroke-color:var(--turquesa)}
+.linea.k.on .lin-btn .num{color:var(--turquesa)}
+.lin-panel{--pb:var(--noche);--pt:#fff;--pa:var(--menta);background:var(--pb);color:var(--pt);padding:28px 32px 26px;display:grid;grid-template-columns:minmax(0,1fr) 210px;grid-template-rows:auto 1fr;gap:6px 26px;position:relative;overflow:hidden}
+.linea[data-tono=b] .lin-panel{--pb:var(--petroleo);--pa:#d2faf6}
+.linea[data-tono=c] .lin-panel{--pb:var(--gris-osc);--pa:var(--menta)}
+.linea[data-tono=k] .lin-panel{--pb:var(--turquesa);--pt:var(--tinta);--pa:var(--noche)}
+.lin-panel h3{font-size:clamp(24px,2.4vw,32px);line-height:1.05;font-weight:800;letter-spacing:-.03em;align-self:end}
+.lin-panel .res{margin-top:10px;font-size:17.5px;line-height:1.5;opacity:.95;max-width:34em}
+.lin-panel .ilus{grid-column:2;grid-row:1/3;width:100%;height:auto;align-self:center;stroke:currentColor;fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+.lin-panel .ilus .ac{stroke:var(--pa)}
+.lin-panel .ilus .rl{fill:var(--pb)}
+.lin-panel ul{grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr;gap:9px 28px;margin-top:16px;padding-top:16px;border-top:1px solid currentColor;border-top-color:color-mix(in srgb,currentColor 28%,transparent)}
+.lin-panel li{position:relative;padding-left:20px;font-size:15px;line-height:1.4}
+.lin-panel li::before{content:"";position:absolute;left:0;top:.5em;width:8px;height:8px;background:var(--pa);transform:rotate(45deg)}
+.lin-panel .gnum{position:absolute;right:20px;bottom:-34px;font-family:var(--disp);font-weight:800;font-size:170px;line-height:1;color:transparent;-webkit-text-stroke:2px currentColor;opacity:.12;pointer-events:none}
+.lin-panel ul.una{grid-template-columns:1fr}
 
-@media (min-width:768px){
-  .lin.cons{flex-direction:row;gap:56px;align-items:center;padding:36px 40px}
-  .cons-cab{flex:0 0 40%}
-  .lin.cons ul{margin-top:0;padding-top:0;border-top:0;flex:1;grid-template-columns:1fr 1fr;gap:14px 28px}
+@media (min-width:900px){
+  .explora{display:grid;grid-template-columns:minmax(0,4.2fr) minmax(0,7.8fr);grid-template-rows:repeat(7,54px);column-gap:48px}
+  .linea{display:contents}
+  .lin-btn{grid-column:1;height:100%}
+  .linea.on .lin-btn{transform:translateX(14px);background:linear-gradient(90deg,#fff,rgba(255,255,255,0))}
+  .lin-btn:hover{transform:translateX(8px)}
+  .linea.on .lin-btn:hover{transform:translateX(14px)}
+  .lin-panel{grid-column:2;grid-row:1/span 7;visibility:hidden;opacity:0;transform:translateX(30px);transition:opacity .35s,transform .45s,visibility 0s .45s;clip-path:polygon(0 0,calc(100% - 56px) 0,100% 56px,100% 100%,0 100%);padding:28px 36px 24px}
+  .linea.on .lin-panel{visibility:visible;opacity:1;transform:none;transition:opacity .35s,transform .45s,visibility 0s}
+  .lin-panel .ilus{max-width:270px}
 }
-/* cómo trabajamos */
-.pasos{display:grid;gap:0;margin-top:52px;counter-reset:p}
-.paso{position:relative;padding:0 0 36px 72px}
-.paso:last-child{padding-bottom:0}
-.paso::before{counter-increment:p;content:counter(p);position:absolute;left:0;top:0;width:48px;height:48px;border-radius:50%;background:var(--noche);color:#fff;display:grid;place-items:center;font-weight:700;font-size:19px;z-index:1}
-.paso::after{content:"";position:absolute;left:23px;top:48px;bottom:0;width:2px;background:var(--linea)}
-.paso:last-child::after{display:none}
-.paso h3{font-size:21px;color:var(--noche);font-weight:700;line-height:1.25;padding-top:10px}
-.paso p{margin-top:8px;font-size:16px;color:var(--texto-suave);max-width:40ch}
+@media (max-width:899px){
+  .linea{margin-bottom:10px;background:#fff}
+  .lin-btn{min-height:64px;padding:8px 14px 8px 14px;border-bottom:0}
+  .lin-btn .num{font-size:34px;min-width:52px}
+  .lin-btn .nom{font-size:18px}
+  .lin-btn .fl{opacity:1;transform:none;transition:transform .3s}
+  .linea.on .lin-btn .fl{transform:rotate(90deg)}
+  .linea.k{border-left:6px solid var(--turquesa)}
+  .lin-panel{display:none;grid-template-columns:minmax(0,1fr) 120px;padding:26px 20px 24px}
+  .linea.on .lin-panel{display:grid;animation:entra .35s both}
+  .lin-panel .ilus{stroke-width:4}
+  .lin-panel ul{grid-template-columns:1fr}
+  .lin-panel .gnum{font-size:110px;bottom:-20px}
+}
+@keyframes entra{from{opacity:0;transform:translateY(-8px)}}
 
-/* qué incluye */
-.incluye{background:var(--tinte)}
-.incluye .cont{display:grid;gap:44px}
-.lista-inc{display:grid;gap:14px}
-.lista-inc>li{background:#fff;border:1px solid var(--linea);border-radius:var(--radio);padding:22px 22px 22px 70px;position:relative}
-.lista-inc>li::before{content:"";position:absolute;left:22px;top:22px;width:30px;height:30px;border-radius:50%;background:var(--petroleo) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 12.5l4 4 8-9'/%3E%3C/svg%3E") center/18px no-repeat}
-.lista-inc b{display:block;font-size:18px;color:var(--noche);font-weight:700}
-.lista-inc p{margin-top:4px;font-size:16px;color:var(--texto-suave)}
-.lista-inc ul{margin-top:10px;display:grid;gap:4px;font-size:16px;color:var(--texto-suave)}
-.lista-inc ul li{padding-left:16px;position:relative}
-.lista-inc ul li::before{content:"";position:absolute;left:0;top:.7em;width:6px;height:6px;border-radius:50%;background:var(--gris)}
+/* cómo trabajamos */
+.proceso{--bg:var(--turquesa);color:var(--tinta);padding:40px 0 calc(48px + 8px)}
+.proceso::after{content:"";position:absolute;left:0;right:0;top:-17px;height:18px;background:var(--turquesa);-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='18' viewBox='0 0 56 18'%3E%3Cpath d='M0 18L9 0h38l9 18z'/%3E%3C/svg%3E") repeat-x bottom left/56px 18px;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='18' viewBox='0 0 56 18'%3E%3Cpath d='M0 18L9 0h38l9 18z'/%3E%3C/svg%3E") repeat-x bottom left/56px 18px;z-index:-1}
+.proceso .deco .par{right:-140px;bottom:-260px;width:620px;height:620px}
+.proceso .deco .par2{left:38%;top:-60px;width:180px;height:180px}
+.proceso .cab-sec{display:grid;gap:10px}
+.linea-proc{position:relative;margin-top:24px;container-type:inline-size;--prog:0}
+.pasos{display:grid;gap:0;counter-reset:p;position:relative}
+.track{position:absolute;left:24px;top:24px;bottom:24px;width:6px;margin-left:-3px;background:rgba(6,35,33,.22);border-radius:3px}
+.track .fill{position:absolute;inset:0;background:var(--tinta);border-radius:3px;transform-origin:top;transform:scaleY(var(--prog))}
+.track .caja{display:none}
+.paso{position:relative;padding:0 0 34px 76px;counter-increment:p}
+.paso:last-child{padding-bottom:0}
+.paso::before{content:counter(p);position:absolute;left:0;top:0;width:48px;height:48px;border-radius:50%;background:var(--turquesa);border:4px solid var(--tinta);color:var(--tinta);display:grid;place-items:center;font-family:var(--disp);font-weight:800;font-size:19px;z-index:1;transition:background .35s,color .35s,transform .35s}
+.paso.lleno::before{background:var(--tinta);color:var(--turquesa);transform:scale(1.12)}
+.paso h3{font-size:22px;line-height:1.12;font-weight:800;letter-spacing:-.025em;padding-top:10px}
+.paso p{margin-top:8px;font-size:16px;line-height:1.5;max-width:30em}
+@media (min-width:768px){
+  .pasos{grid-template-columns:repeat(4,1fr);gap:0 36px}
+  .paso{padding:68px 0 0 0}
+  .paso h3{padding-top:0}
+  .track{left:24px;right:calc(25% - 24px + 36px*0);top:24px;bottom:auto;height:6px;width:auto;margin:-3px 0 0}
+  .track .fill{transform-origin:left;transform:scaleX(var(--prog))}
+  .track .caja{display:block;position:absolute;left:0;top:50%;width:34px;height:34px;margin:-17px 0 0 -17px;background:var(--tinta);color:var(--turquesa);border-radius:8px;display:grid;place-items:center;transform:translateX(calc(var(--prog)*(100cqw - 24px - 25cqw + 24px)));transition:none}
+  .track .caja .i{width:22px;height:22px}
+  .proceso .cab-sec{grid-template-columns:1fr auto;align-items:end}
+}
 
 /* portal */
-.portal{background:var(--noche);position:relative;overflow:hidden}
-.portal .fondo{position:absolute;right:-180px;top:-120px;width:620px;opacity:.07;pointer-events:none}
-.portal .cont{position:relative}
-.accesos{display:grid;gap:18px;margin-top:48px}
-.acc{display:flex;flex-direction:column;background:var(--noche-2);border:1px solid #2c5a56;border-radius:var(--radio);padding:28px;text-decoration:none;color:#fff;transition:transform .25s,border-color .25s,background .25s}
-.acc:hover{transform:translateY(-3px);border-color:var(--turquesa);background:#115049}
-.acc .ico{background:var(--turquesa);color:var(--noche)}
-.acc h3{margin-top:20px;font-size:23px;font-weight:700}
-.acc p{margin-top:8px;font-size:16px;color:#c3dedb;flex:1}
-.acc .ir{margin-top:22px;display:inline-flex;align-items:center;gap:8px;font-weight:700;color:#8fe9e0;font-size:16px}
-.acc .ir svg{width:18px;height:18px;transition:transform .2s}
-.acc:hover .ir svg{transform:translateX(4px)}
-.nota-portal{margin-top:28px;font-size:15px;color:#a7c9c5;max-width:70ch}
-
-html.js .lin.ya:hover,html.js .acc.ya:hover{transform:translateY(-3px)}
-/* pdf */
-.pdf .caja{display:grid;gap:32px;align-items:center;border:1px solid var(--linea);border-radius:20px;padding:clamp(24px,5vw,48px);background:linear-gradient(135deg,#f4fbfa,#fff)}
-.pdf h2{max-width:22ch}
-.miniatura{width:150px;aspect-ratio:8.5/11;background:var(--noche);border-radius:6px;box-shadow:0 18px 40px rgba(10,53,50,.25);padding:16px 14px;color:#fff;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden;margin:0 auto 0 0}
-.miniatura img{width:36px;height:36px;background:#fff;border-radius:50%;padding:3px}
-.miniatura b{font-size:12px;line-height:1.2;display:block}
-.miniatura small{font-size:8px;color:#8fe9e0;letter-spacing:.1em;text-transform:uppercase}
-.miniatura::after{content:"";position:absolute;right:-30px;bottom:-30px;width:90px;height:90px;border-radius:50%;border:8px solid var(--turquesa);opacity:.5}
+.portal{--bg:var(--noche);color:#fff;margin-top:-48px;padding:calc(48px + 18px) 0 calc(var(--d) + 20px)}
+.portal::before{border-radius:50% 50% 0 0/48px 48px 0 0}
+.portal .deco{clip-path:none}
+.portal .deco .logo-g{right:-120px;top:-40px;width:560px;opacity:.06;filter:brightness(0) invert(1)}
+.portal .deco .par2{left:-200px;bottom:-260px;width:500px;height:500px}
+.portal .cab-sec{display:grid;gap:8px}
+.accesos{display:grid;margin-top:22px;border-top:1px solid #2c5a56}
+.acc{display:grid;grid-template-columns:1fr auto;grid-template-areas:"t f" "p f";gap:6px 20px;align-items:center;padding:26px 6px;text-decoration:none;color:#fff;border-bottom:1px solid #2c5a56;position:relative;transition:padding .3s,background .3s}
+.acc h3{grid-area:t;font-size:clamp(24px,2.1vw,30px);font-weight:800;letter-spacing:-.03em;line-height:1.05}
+.acc p{grid-area:p;font-size:15.5px;color:#cfe6e3;line-height:1.5;max-width:34em}
+.acc .ir{grid-area:f;width:52px;height:52px;border-radius:50%;border:2px solid var(--turquesa);color:var(--turquesa);display:grid;place-items:center;transition:background .25s,color .25s,transform .3s}
+.acc .ir .i{width:24px;height:24px}
+.acc::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:4px;background:var(--turquesa);transform:scaleX(0);transform-origin:left;transition:transform .4s}
+.acc:hover::after,.acc:focus-visible::after{transform:scaleX(1)}
+.acc:hover .ir,.acc:focus-visible .ir{background:var(--turquesa);color:var(--tinta);transform:translateX(8px)}
+.nota-portal{margin-top:18px;font-size:14.5px;color:#b3d3cf;max-width:70ch}
+@media (min-width:900px){
+  .portal .cab-sec{grid-template-columns:1.5fr 1fr;align-items:end;gap:40px}
+  .portal .intro{margin-top:0;justify-self:end}
+  .accesos{grid-template-columns:repeat(3,1fr);border-top:0;gap:0}
+  .acc{grid-template-columns:1fr auto;grid-template-areas:"t f" "p p";align-content:start;padding:28px 28px 30px 0;border-bottom:0;border-top:1px solid #2c5a56;margin-right:28px}
+  .acc+.acc{padding-left:0}
+  .acc:last-child{margin-right:0}
+  
+  .acc::after{top:-1px;bottom:auto}
+}
 
 /* preguntas */
-.preguntas{margin-top:40px;display:grid;gap:12px;max-width:860px}
-.preguntas details{border:1px solid var(--linea);border-radius:var(--radio);background:#fff}
-.preguntas summary{cursor:pointer;list-style:none;padding:20px 56px 20px 22px;font-weight:700;font-size:18px;color:var(--noche);position:relative;min-height:48px}
-.preguntas summary::-webkit-details-marker{display:none}
-.preguntas summary::after{content:"";position:absolute;right:22px;top:50%;width:10px;height:10px;border-right:2px solid var(--petroleo);border-bottom:2px solid var(--petroleo);transform:translateY(-70%) rotate(45deg);transition:transform .2s}
-.preguntas details[open] summary::after{transform:translateY(-30%) rotate(-135deg)}
-.preguntas details p{padding:0 22px 22px;color:var(--texto-suave);font-size:17px;max-width:68ch}
-/* contacto */
-.contacto .vias{display:grid;gap:16px;margin-top:44px}
-.via{display:flex;gap:16px;align-items:flex-start;padding:24px;border:1px solid var(--linea);border-radius:var(--radio);text-decoration:none;background:#fff;transition:border-color .2s,box-shadow .2s}
-a.via:hover{border-color:var(--turquesa);box-shadow:0 12px 30px rgba(10,53,50,.08)}
-.via .ico{width:46px;height:46px}
-.via .ico svg{width:24px;height:24px}
-.via small{display:block;font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--petroleo-osc)}
-.via b{display:block;font-size:20px;font-weight:700;color:var(--noche);margin-top:2px;overflow-wrap:anywhere}
-.via span.d{display:block;font-size:15px;color:var(--texto-suave);margin-top:2px}
+.faq{--bg:#fff;--forma:polygon(0 var(--d),100% 0,100% 100%,0 100%);margin-top:calc(var(--d)*-1);padding:calc(var(--d) + 32px) 0 32px}
+.faq h2{font-size:clamp(28px,3.4vw,42px)}
+.faq .cont{display:grid;gap:30px}
+.faq .deco{clip-path:none}
+.faq .deco .q{left:130px;top:150px;font-family:var(--disp);font-weight:800;font-size:240px;line-height:1;color:transparent;-webkit-text-stroke:2px #cfe0de}
+.pregs{display:grid;gap:0 44px;align-items:start}
+.pregs details{border-top:3px solid var(--noche)}
+.pregs summary{cursor:pointer;list-style:none;padding:16px 46px 16px 0;font-family:var(--disp);font-weight:700;font-size:17px;line-height:1.3;letter-spacing:-.01em;color:var(--noche);position:relative;min-height:56px}
+.pregs summary::-webkit-details-marker{display:none}
+.pregs summary::after{content:"";position:absolute;right:4px;top:50%;width:26px;height:26px;margin-top:-13px;border-radius:50%;background:var(--turquesa) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23062321' stroke-width='3' stroke-linecap='round'%3E%3Cpath d='M12 6v12M6 12h12'/%3E%3C/svg%3E") center/16px no-repeat;transition:transform .3s}
+.pregs details[open] summary::after{transform:rotate(135deg)}
+.pregs summary:hover{color:var(--petroleo-osc)}
+.pregs details p{padding:0 0 20px;color:var(--suave);font-size:16px;max-width:60ch}
+@media (min-width:900px){
+  .faq .cont{grid-template-columns:minmax(0,4fr) minmax(0,8fr);gap:56px}
+  .pregs{grid-template-columns:1fr 1fr}
+}
+
+/* contacto y PDF */
+.final{--bg:var(--petroleo);--forma:polygon(0 0,100% var(--d),100% 100%,0 100%);color:#fff;padding:calc(var(--d) + 30px) 0 74px}
+.final .deco .par{left:-180px;top:-120px;width:520px;height:520px}
+.fin-cab{display:grid;gap:34px}
+.pdf{display:flex;gap:22px;align-items:center;position:relative}
+.miniatura{flex:none;width:118px;aspect-ratio:8.5/11;background:var(--noche);border-radius:4px;box-shadow:0 18px 36px rgba(0,0,0,.35);padding:12px 10px;color:#fff;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden;transform:rotate(-5deg);transition:transform .35s}
+.pdf:hover .miniatura{transform:rotate(0) translateY(-4px)}
+.miniatura img{width:30px;height:30px;background:#fff;border-radius:50%;padding:2px}
+.miniatura b{font-family:var(--disp);font-size:11px;line-height:1.15;display:block;font-weight:800}
+.miniatura small{font-size:7px;color:var(--menta);letter-spacing:.1em;text-transform:uppercase}
+.miniatura::after{content:"";position:absolute;right:-26px;bottom:-26px;width:78px;height:78px;border-radius:50%;border:7px solid var(--turquesa);opacity:.7}
+.pdf h3{font-size:22px;font-weight:800;letter-spacing:-.02em;line-height:1.1}
+.pdf p{margin-top:6px;font-size:15px;color:#fff;max-width:26em}
+.pdf .btn{margin-top:14px}
+.vias{display:grid;gap:12px;margin-top:24px}
+.via{display:grid;grid-template-columns:auto 1fr auto;gap:16px;align-items:center;min-height:76px;padding:10px 20px;background:#fff;color:var(--noche);text-decoration:none;border-radius:6px;transition:background .25s,color .25s,transform .25s}
+.via .ic{width:48px;height:48px;border-radius:50%;background:var(--noche);color:var(--menta);display:grid;place-items:center;transition:background .25s,color .25s}
+.via .ic .i{width:24px;height:24px}
+.via small{display:block;font-family:var(--disp);font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--petroleo-osc)}
+.via b{display:block;font-family:var(--disp);font-size:clamp(17px,1.7vw,22px);font-weight:800;letter-spacing:-.02em;overflow-wrap:anywhere;line-height:1.15}
+.via .fl{width:26px;height:26px;transition:transform .3s}
+.via:hover{background:var(--noche);color:#fff}
+.via:hover small{color:var(--menta)}
+.via:hover .ic{background:var(--turquesa);color:var(--tinta)}
+.via:hover .fl{transform:translateX(8px)}
+.ubic{margin-top:14px;display:flex;align-items:center;gap:10px;font-size:15.5px;color:#fff}
+.ubic .i{width:22px;height:22px;color:#fff}
+.banda-transp{position:absolute;left:0;right:0;bottom:0;height:64px;overflow:hidden;pointer-events:none}
+.mov{position:absolute;left:-320px;right:0;bottom:0;height:64px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='320' height='64' viewBox='0 0 320 64' fill='none' stroke='%23ffffff' stroke-opacity='.55' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='0' y='50' width='320' height='10' rx='5'/%3E%3Cpath d='M30 50V20h34v30M30 30h34M47 20v10'/%3E%3Cpath d='M150 50V12h44v38M150 26h44M172 12v14'/%3E%3Cpath d='M244 50V30h30v20M244 38h30'/%3E%3C/svg%3E") repeat-x bottom left/320px 64px;animation:banda 9s linear infinite}
+@keyframes banda{to{transform:translateX(320px)}}
 
 /* pie */
-.pie{background:var(--noche);color:#c3dedb;padding:44px 0 36px}
-.pie .cont{display:grid;gap:28px}
-.pie .marca b{color:#fff}
-.pie .marca img{background:#fff;border-radius:50%;padding:3px}
+.pie{background:var(--noche);color:#c3dedb;padding:36px 0 30px}
+.pie .cont{display:grid;gap:22px}
 .pie p{font-size:15px}
 .pie nav ul{display:flex;flex-wrap:wrap;gap:6px 22px}
-.pie nav a{text-decoration:none;font-size:15px}
+.pie nav a{text-decoration:none;font-size:15px;display:inline-block;padding:6px 0}
 .pie nav a:hover{color:#fff;text-decoration:underline}
-.pie .legal{padding-top:22px;border-top:1px solid #2c5a56;font-size:14px;color:#a7c9c5}
+.pie .legal{padding-top:18px;border-top:1px solid #2c5a56;font-size:14px;color:#a7c9c5}
 
-/* aparición suave */
-html.js .rev{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
+/* aparición escalonada */
+html.js .rev{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.2,1);transition-delay:calc(var(--d,0)*90ms)}
 html.js .rev.ya{opacity:1;transform:none}
 
 @media (min-width:640px){
-  .rejilla{grid-template-columns:1fr 1fr}
-  .accesos{grid-template-columns:1fr 1fr}
-  .contacto .vias{grid-template-columns:1fr 1fr}
-  .pilares{grid-template-columns:1fr 1fr 1fr}
-  .pruebas{grid-template-columns:1fr 1fr 1fr}
+  .pilares{grid-template-columns:repeat(3,1fr)}
+  .vias{grid-template-columns:repeat(3,1fr)}
+  .inc{grid-template-columns:1fr 1fr}
 }
-@media (min-width:768px){
-  .pasos{grid-template-columns:repeat(4,1fr);gap:28px}
-  .paso{padding:72px 0 0 0}
-  .paso::after{left:60px;right:-28px;top:23px;bottom:auto;width:auto;height:2px}
-  .paso:last-child::after{display:none}
-  .paso h3{padding-top:0}
-  .pdf .caja{grid-template-columns:auto 1fr auto}
-  .miniatura{margin:0}
-  .incluye .cont{grid-template-columns:1fr 1.25fr;align-items:start}
-}
-@media (min-width:1024px){
-  .nav{display:flex;gap:28px;align-items:center}
-  html.js .nav,html.js .nav.abierto{display:flex;position:static;box-shadow:none;border:0;padding:0;background:none}
-  .burger{display:none}
-  .portada .cont{grid-template-columns:1.15fr .85fr;align-items:center}
-  .etq{display:block}
-  .somos .cont{grid-template-columns:1fr 1fr;align-items:start;gap:72px}
-  .pilares{grid-template-columns:1fr}
-  .rejilla{grid-template-columns:repeat(3,1fr)}
-  .lin.ancha{grid-column:span 2}
-  .accesos{grid-template-columns:repeat(3,1fr)}
-  .contacto .vias{grid-template-columns:repeat(3,1fr)}
-  .contacto .vias .via.fila{grid-column:1/-1}
+@media (min-width:900px){
+  .somos .cont{grid-template-columns:minmax(0,6fr) minmax(0,6fr);gap:72px;align-items:start}
+  .somos .panel{margin:0 0 -52px;padding:42px 0 46px 48px}
+  .somos .panel::before{right:-50vw;clip-path:polygon(0 0,calc(100% - 44px - 50vw) 0,calc(100% - 50vw) 44px,100% 44px,100% 100%,0 100%)}
+  .vias{grid-template-columns:1fr 1fr 1.3fr}
+  .fin-cab{grid-template-columns:1.25fr 1fr;align-items:center;gap:60px}
+  .pdf{justify-self:end}
   .pie .cont{grid-template-columns:1fr auto;align-items:end}
   .pie .legal{grid-column:1/-1}
 }
+@media (min-width:1024px){
+  .nav{display:flex;gap:26px;align-items:center}
+  html.js .nav,html.js .nav.abierto{display:flex;position:static;box-shadow:none;border:0;padding:0;background:none}
+  html.js .nav.abierto a{border:0;padding:10px 4px;font-size:16px;min-height:0}
+  html.js .nav.abierto a::after{display:block}
+  .burger{display:none}
+  .etq{display:block}
+}
+@media (max-width:1023px){
+  .arte{right:-52%;top:auto;bottom:-10%;transform:none;width:110vw;opacity:.3}
+  .puntos{display:none}
+}
 @media (min-width:1280px){ .cont{padding:0 32px} }
-@media (max-width:1023px){ .cab .btn{padding:8px 14px} }
-@media (max-width:380px){ .marca b{font-size:18px} .cab .btn{font-size:15px;padding:8px 12px} }
+@media (max-width:640px){
+  .hero .btn{width:100%}
+  .acciones{gap:10px}
+  .claves{flex-direction:column;gap:12px}
+  .cab .btn{padding:8px 14px;font-size:14px}
+  .pdf{flex-direction:row}
+  .pista li{font-size:13px}
+  .cinta{height:52px;top:-44px}
+  .pausar{width:44px;height:44px}
+  .via{padding:12px 16px;gap:12px}
+  .via b{font-size:15.5px}
+  .pdf .btn{padding:12px 16px;white-space:nowrap}
+  .miniatura{width:96px}
+  .final{padding-bottom:110px}
+}
+@media (max-width:380px){ .marca b{font-size:18px} .cab .btn{font-size:13px;padding:8px 10px} .marca img{width:38px;height:38px} }
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
   *,*::before,*::after{animation:none!important;transition:none!important}
   html.js .rev{opacity:1;transform:none}
+  .pista{flex:1 1 auto;min-width:0;white-space:normal;transform:none!important}
+  .pista ul+ul{display:none}
+  .pista ul{flex:1 1 100%;flex-wrap:wrap;justify-content:center;padding:8px 5% 8px 4%;row-gap:2px}
+  .pista li .i{margin:0 14px}
+  .cinta{height:auto;min-height:60px;overflow:visible}
+  .pausar{display:none}
 }
 </style>
+<noscript><style>.explora{display:block}.linea{display:block;margin-bottom:10px}.lin-panel{display:grid!important;visibility:visible!important;opacity:1!important;transform:none!important;margin-bottom:16px;clip-path:none!important}.lin-btn .fl{display:none}.paso::before{background:var(--tinta);color:var(--turquesa)}.track .fill{transform:none}</style></noscript>
+
 <link rel="canonical" href="https://camil1693.github.io/Maquilogis-web/">
 <meta property="og:url" content="https://camil1693.github.io/Maquilogis-web/">
 <meta property="og:image" content="https://camil1693.github.io/Maquilogis-web/og-maquilogis.png">
@@ -448,9 +591,29 @@ html.js .rev.ya{opacity:1;transform:none}
 <body>
 <a class="salto" href="#contenido">Ir al contenido</a>
 
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <path id="eng1" d="M82.1,-18.0 L99.3,-12.2 L99.3,12.2 L82.1,18.0 L81.7,19.4 L94.7,32.1 L84.1,54.0 L66.1,51.8 L65.2,53.0 L71.4,70.0 L52.4,85.2 L37.1,75.4 L35.8,76.0 L34.0,94.1 L10.2,99.5 L0.8,84.0 L-0.8,84.0 L-10.2,99.5 L-34.0,94.1 L-35.8,76.0 L-37.1,75.4 L-52.4,85.2 L-71.4,70.0 L-65.2,53.0 L-66.1,51.8 L-84.1,54.0 L-94.7,32.1 L-81.7,19.4 L-82.1,18.0 L-99.3,12.2 L-99.3,-12.2 L-82.1,-18.0 L-81.7,-19.4 L-94.7,-32.1 L-84.1,-54.0 L-66.1,-51.8 L-65.2,-53.0 L-71.4,-70.0 L-52.4,-85.2 L-37.1,-75.4 L-35.8,-76.0 L-34.0,-94.1 L-10.2,-99.5 L-0.8,-84.0 L0.8,-84.0 L10.2,-99.5 L34.0,-94.1 L35.8,-76.0 L37.1,-75.4 L52.4,-85.2 L71.4,-70.0 L65.2,-53.0 L66.1,-51.8 L84.1,-54.0 L94.7,-32.1 L81.7,-19.4Z"/>
+    <path id="eng2" d="M78.3,-24.4 L98.5,-17.0 L98.5,17.0 L78.3,24.4 L77.7,26.3 L89.7,44.2 L69.7,71.7 L49.0,65.7 L47.4,66.9 L46.6,88.5 L14.3,99.0 L1.0,82.0 L-1.0,82.0 L-14.3,99.0 L-46.6,88.5 L-47.4,66.9 L-49.0,65.7 L-69.7,71.7 L-89.7,44.2 L-77.7,26.3 L-78.3,24.4 L-98.5,17.0 L-98.5,-17.0 L-78.3,-24.4 L-77.7,-26.3 L-89.7,-44.2 L-69.7,-71.7 L-49.0,-65.7 L-47.4,-66.9 L-46.6,-88.5 L-14.3,-99.0 L-1.0,-82.0 L1.0,-82.0 L14.3,-99.0 L46.6,-88.5 L47.4,-66.9 L49.0,-65.7 L69.7,-71.7 L89.7,-44.2 L77.7,-26.3Z"/>
+    <symbol id="i-flecha" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+    <symbol id="i-cubo" viewBox="0 0 24 24"><path d="M12 2.5l8 4.5v10l-8 4.5-8-4.5V7zM4 7l8 4.5L20 7M12 11.5v10"/></symbol>
+    <symbol id="i-escudo" viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 4.5-3.2 8-8 9-4.8-1-8-4.5-8-9V6z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></symbol>
+    <symbol id="i-barras" viewBox="0 0 24 24"><path d="M4 18V9m5 9V5m5 13v-7m5 7V8"/></symbol>
+    <symbol id="i-doc" viewBox="0 0 24 24"><path d="M7 3h8l4 4v14H7z"/><path d="M15 3v4h4M10 12h6M10 16h6"/></symbol>
+    <symbol id="i-tel" viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 005 5L15 13l5 2v4a2 2 0 01-2 2A16 16 0 013 6a2 2 0 012-2z"/></symbol>
+    <symbol id="i-wa" viewBox="0 0 24 24"><path d="M4 20l1.3-4.2A8 8 0 1112 20a8 8 0 01-3.8-1z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5l1-1.5-2-1-.8.8c-.8-.4-1.6-1.2-2-2l.8-.8-1-2z"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3.5 7l8.5 6 8.5-6"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s7-6.2 7-11.5A7 7 0 005 9.5C5 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></symbol>
+    <symbol id="i-pdf" viewBox="0 0 24 24"><path d="M12 4v11m-5-5l5 5 5-5M5 20h14"/></symbol>
+    <symbol id="i-pausa" viewBox="0 0 24 24"><path d="M8 5v14M16 5v14"/></symbol>
+    <symbol id="i-play" viewBox="0 0 24 24"><path d="M7 4.500l12 7.500-12 7.500z"/></symbol>
+    <symbol id="i-cliente" viewBox="0 0 24 24"><path d="M3 21V8l6-3v16M9 21h12V11l-6-3v13"/></symbol>
+  </defs>
+</svg>
+
 <header class="cab">
   <div class="cont">
-    <a class="marca" href="#inicio" aria-label="Maquilogis, inicio"><img src="logo.png" alt="" width="44" height="44"><b>Maquilogis</b></a>
+    <a class="marca" href="#inicio" aria-label="Maquilogis, inicio"><img src="logo.png" alt="" width="42" height="42"><b>Maquilogis</b></a>
     <nav class="nav" id="menu" aria-label="Principal">
       <a href="#servicios">Servicios</a>
       <a href="#como-trabajamos">Cómo trabajamos</a>
@@ -459,7 +622,7 @@ html.js .rev.ya{opacity:1;transform:none}
       <a href="#contacto">Contacto</a>
     </nav>
     <div class="cab-der">
-      <a class="btn btn-p" href="portal.html">Ingresar</a>
+      <a class="btn btn-t" href="portal.html">Ingresar</a>
       <button class="burger" type="button" id="burger" aria-expanded="false" aria-controls="menu" aria-label="Abrir menú">
         <svg class="tres" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
         <svg class="x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
@@ -470,217 +633,297 @@ html.js .rev.ya{opacity:1;transform:none}
 
 <main id="contenido">
 
-<section class="portada" id="inicio" aria-labelledby="t-portada">
+<section class="banda hero" id="inicio" aria-labelledby="t-portada">
+  <div class="deco" aria-hidden="true">
+    <div class="puntos" style="left:-40px;top:30px"></div>
+    <div class="puntos" style="right:30%;bottom:150px;transform:scaleX(-1)"></div>
+  </div>
+  <div class="arte">
+    <div class="par" data-par="-.05" aria-hidden="true">
+      <svg class="g gira" viewBox="-110 -110 220 220" fill="none"><use href="#eng1" stroke="#0fa99d" stroke-width="1.5" stroke-linejoin="round"/><circle r="70" stroke="#2c5a56" stroke-width=".8"/></svg>
+      <svg class="g gira rev-g lento" viewBox="-110 -110 220 220" fill="none"><g transform="scale(.74)"><use href="#eng2" stroke="#898a8c" stroke-opacity=".8" stroke-width="2" stroke-linejoin="round" stroke-dasharray="2 6" stroke-linecap="round"/></g></svg>
+    </div>
+    <div class="sello"><img src="logo.png" alt="Logo de Maquilogis: un engranaje con dos manos que rodean cajas" width="192" height="192"></div>
+    <span class="etq" aria-hidden="true" style="left:24%;top:21%">Supervisión y control</span>
+    <span class="etq" aria-hidden="true" style="right:19%;top:74%">Picos de producción</span>
+    <span class="etq" aria-hidden="true" style="left:12%;top:58%">Reportes de proceso</span>
+  </div>
   <div class="cont">
     <div>
       <span class="sobre">Maquilas Logísticas de Colombia S.A.S.</span>
-      <h1 id="t-portada">Aliados en <em>maquila</em>, logística y talento operativo</h1>
-      <p class="valor">Personal capacitado y supervisado para maquila, empaque, bodega y aseo en Itagüí y el Valle de Aburrá, de forma temporal o por días, para que los picos de producción y despacho no detengan su trabajo. Además de operar, acompañamos la mejora y la automatización de sus procesos.</p>
+      <h1 id="t-portada">Aliados en <em>maquila<svg class="subr" viewBox="0 0 300 12" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M3 8C50 2 100 11 160 5s100-2 137 2"/></svg></em>, logística y talento operativo</h1>
+      <p class="valor">Personal capacitado y supervisado para maquila, empaque, bodega y aseo en Itagüí y el Valle de Aburrá, temporal o por días, para que los picos de producción y despacho no detengan su trabajo. Además de operar, acompañamos la mejora y la automatización de sus procesos.</p>
       <div class="acciones">
-        <a class="btn btn-p" href="#contacto">Solicitar una propuesta</a>
-        <a class="btn btn-s" href="#servicios">Ver portafolio</a>
+        <a class="btn btn-t" href="#contacto">Solicitar una propuesta <svg class="i" aria-hidden="true"><use href="#i-flecha"/></svg></a>
+        <a class="btn btn-g" href="#servicios">Ver portafolio <svg class="i" aria-hidden="true"><use href="#i-flecha"/></svg></a>
       </div>
-      <ul class="pruebas">
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l8 3v6c0 4.5-3.2 8-8 9-4.8-1-8-4.5-8-9V6z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></svg>Personal capacitado y supervisado</li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 18V9m5 9V5m5 13v-7m5 7V8"/></svg>Respuesta en picos de producción y despacho</li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3h8l4 4v14H7z"/><path d="M15 3v4h4M10 12h6M10 16h6"/></svg>Cumplimiento laboral, control y reportes</li>
+    </div>
+  </div>
+</section>
+
+<div class="cinta-wrap">
+  <div class="cinta" id="cinta">
+    <div class="pista" aria-hidden="true">
+      <ul><li>Maquila y empaque<svg class="i"><use href="#i-cubo"/></svg></li><li>Logística y bodega<svg class="i"><use href="#i-cubo"/></svg></li><li>Calidad<svg class="i"><use href="#i-cubo"/></svg></li><li>Aseo y oficios varios<svg class="i"><use href="#i-cubo"/></svg></li><li>Apoyo comercial<svg class="i"><use href="#i-cubo"/></svg></li><li>Implementación de procesos<svg class="i"><use href="#i-cubo"/></svg></li><li>Consultoría y mejora de procesos<svg class="i"><use href="#i-cubo"/></svg></li></ul>
+      <ul><li>Maquila y empaque<svg class="i"><use href="#i-cubo"/></svg></li><li>Logística y bodega<svg class="i"><use href="#i-cubo"/></svg></li><li>Calidad<svg class="i"><use href="#i-cubo"/></svg></li><li>Aseo y oficios varios<svg class="i"><use href="#i-cubo"/></svg></li><li>Apoyo comercial<svg class="i"><use href="#i-cubo"/></svg></li><li>Implementación de procesos<svg class="i"><use href="#i-cubo"/></svg></li><li>Consultoría y mejora de procesos<svg class="i"><use href="#i-cubo"/></svg></li></ul>
+    </div>
+    <button class="pausar" type="button" id="pausar" aria-pressed="false" aria-label="Pausar la cinta de servicios"><svg class="i pausa-i" aria-hidden="true"><use href="#i-pausa"/></svg><svg class="i play" aria-hidden="true"><use href="#i-play"/></svg></button>
+  </div>
+</div>
+
+<section class="banda somos" id="quienes-somos" aria-labelledby="t-somos">
+  <div class="deco" aria-hidden="true"><div class="par" data-par=".05"><svg class="gira lento" viewBox="-110 -110 220 220" fill="none"><use href="#eng1" stroke="#dbe8e6" stroke-width="1.4" stroke-linejoin="round"/></svg></div></div>
+  <div class="cont">
+    <div class="texto">
+      <div class="rev"><span class="sobre">Quiénes somos</span>
+      <h2 id="t-somos">Un aliado para <em>todo el proceso</em> de maquilas</h2></div>
+      <p class="rev" style="--d:1;margin-top:20px">Maquilogis es Maquilas Logísticas de Colombia S.A.S., su aliado en logística y recurso humano, temporal o por días, en cada etapa del proceso de maquila. Atendemos empresas en Itagüí, Medellín y el Valle de Aburrá.</p>
+      <p class="rev" style="--d:2">Contamos con personal capacitado para una amplia variedad de funciones operativas, pensado para los picos de producción y despacho de empresas industriales y comerciales. Además de operar, ofrecemos asesoría y consultoría para optimizar y automatizar sus procesos.</p>
+      <div class="pilares" data-esc>
+        <div class="pilar rev" style="--d:3"><h3>Logística</h3><p>Apoyo en manufactura, empaque, bodega y despachos.</p></div>
+        <div class="pilar rev" style="--d:4"><h3>Recurso humano temporal o por días</h3><p>Personal operativo y de control para ejecutar las actividades de su proceso.</p></div>
+        <div class="pilar rev" style="--d:5"><h3>Control y reportes</h3><p>Supervisión del proceso y reportes de unidades ensambladas, averiadas o defectuosas.</p></div>
+      </div>
+    </div>
+    <div class="panel rev" id="incluye" style="--d:2">
+      <img class="marca-logo" src="logo.png" alt="" width="192" height="192">
+      <span class="sobre">Qué incluye la propuesta</span>
+      <h3>Personal, dotación y prestaciones dentro de la propuesta</h3>
+      <ul class="inc">
+        <li><b>Dotación básica de ley</b></li>
+        <li><b>Prestaciones sociales</b><p>De acuerdo con la ley.</p></li>
+        <li><b>Personal operativo y de control</b><ul><li>Aportes y prestaciones sociales</li><li>Supervisión y control del proceso</li><li>Papelería y formatos propios de la empresa</li></ul></li>
+        <li><b>Reportes del proceso</b><p>Unidades ensambladas, averiadas o defectuosas.</p></li>
       </ul>
     </div>
-    <div class="arte">
-      <svg class="g g1" aria-hidden="true" viewBox="-110 -110 220 220" fill="none"><path d="M82.1,-18.0 L99.3,-12.2 L99.3,12.2 L82.1,18.0 L81.7,19.4 L94.7,32.1 L84.1,54.0 L66.1,51.8 L65.2,53.0 L71.4,70.0 L52.4,85.2 L37.1,75.4 L35.8,76.0 L34.0,94.1 L10.2,99.5 L0.8,84.0 L-0.8,84.0 L-10.2,99.5 L-34.0,94.1 L-35.8,76.0 L-37.1,75.4 L-52.4,85.2 L-71.4,70.0 L-65.2,53.0 L-66.1,51.8 L-84.1,54.0 L-94.7,32.1 L-81.7,19.4 L-82.1,18.0 L-99.3,12.2 L-99.3,-12.2 L-82.1,-18.0 L-81.7,-19.4 L-94.7,-32.1 L-84.1,-54.0 L-66.1,-51.8 L-65.2,-53.0 L-71.4,-70.0 L-52.4,-85.2 L-37.1,-75.4 L-35.8,-76.0 L-34.0,-94.1 L-10.2,-99.5 L-0.8,-84.0 L0.8,-84.0 L10.2,-99.5 L34.0,-94.1 L35.8,-76.0 L37.1,-75.4 L52.4,-85.2 L71.4,-70.0 L65.2,-53.0 L66.1,-51.8 L84.1,-54.0 L94.7,-32.1 L81.7,-19.4Z" stroke="#0fa99d" stroke-width="2.2" stroke-linejoin="round"/><circle r="70" stroke="#cfe6e3" stroke-width="1.2"/></svg>
-      <svg class="g g2" aria-hidden="true" viewBox="-110 -110 220 220" fill="none"><g transform="scale(.74)"><path d="M78.3,-24.4 L98.5,-17.0 L98.5,17.0 L78.3,24.4 L77.7,26.3 L89.7,44.2 L69.7,71.7 L49.0,65.7 L47.4,66.9 L46.6,88.5 L14.3,99.0 L1.0,82.0 L-1.0,82.0 L-14.3,99.0 L-46.6,88.5 L-47.4,66.9 L-49.0,65.7 L-69.7,71.7 L-89.7,44.2 L-77.7,26.3 L-78.3,24.4 L-98.5,17.0 L-98.5,-17.0 L-78.3,-24.4 L-77.7,-26.3 L-89.7,-44.2 L-69.7,-71.7 L-49.0,-65.7 L-47.4,-66.9 L-46.6,-88.5 L-14.3,-99.0 L-1.0,-82.0 L1.0,-82.0 L14.3,-99.0 L46.6,-88.5 L47.4,-66.9 L49.0,-65.7 L69.7,-71.7 L89.7,-44.2 L77.7,-26.3Z" stroke="#898a8c" stroke-opacity=".55" stroke-width="2.6" stroke-linejoin="round" stroke-dasharray="2 7" stroke-linecap="round"/></g></svg>
-      <div class="sello"><img src="logo.png" alt="Logo de Maquilogis: un engranaje con dos manos que rodean cajas" width="192" height="192"></div>
-      <span class="etq" aria-hidden="true" style="left:-2%;top:16%">Supervisión y control</span>
-      <span class="etq" aria-hidden="true" style="right:-4%;top:42%">Picos de producción</span>
-      <span class="etq" aria-hidden="true" style="left:6%;bottom:8%">Reportes de proceso</span>
-    </div>
   </div>
 </section>
 
-<section class="sec somos" id="quienes-somos" aria-labelledby="t-somos">
+<section class="banda servicios" id="servicios" aria-labelledby="t-serv">
+  <div class="deco" aria-hidden="true"><div class="par" data-par="-.07"><svg class="gira rev-g lento" viewBox="-110 -110 220 220" fill="none"><use href="#eng1" stroke="#fff" stroke-width="3" stroke-linejoin="round"/></svg></div></div>
   <div class="cont">
-    <div class="texto rev">
-      <span class="sobre">Quiénes somos</span>
-      <h2 id="t-somos">Un aliado para todo el proceso de maquilas</h2>
-      <p style="margin-top:22px">Maquilogis es Maquilas Logísticas de Colombia S.A.S., su aliado en logística y recurso humano, temporal o por días, en cada etapa del proceso de maquila. Atendemos empresas en Itagüí, Medellín y el Valle de Aburrá.</p>
-      <p>Contamos con personal capacitado para una amplia variedad de funciones operativas, pensado para los picos de producción y despacho de empresas industriales y comerciales.</p>
-      <p>Además de operar, ofrecemos asesoría y consultoría para optimizar y automatizar los procesos de su empresa.</p>
+    <div class="cab-sec rev">
+      <span class="sobre">Portafolio de servicios</span>
+      <h2 id="t-serv">Maquila, logística, aseo y <em>consultoría</em> para su operación</h2>
+      <p class="intro">Siete líneas, con una modalidad de implementación que se combinan según lo que su planta, bodega u oficina necesite. Elija una para ver qué incluye.</p>
     </div>
-    <div class="pilares">
-      <div class="pilar rev"><h3>Logística</h3><p>Apoyo en manufactura, empaque, bodega y despachos.</p></div>
-      <div class="pilar rev"><h3>Recurso humano temporal o por días</h3><p>Personal operativo y de control para ejecutar las actividades de su proceso.</p></div>
-      <div class="pilar rev"><h3>Control y reportes</h3><p>Supervisión del proceso y reportes de unidades ensambladas, averiadas o defectuosas.</p></div>
-    </div>
-  </div>
-</section>
 
-<section class="sec servicios" id="servicios" aria-labelledby="t-serv">
-  <div class="cont">
-    <span class="sobre">Portafolio de servicios</span>
-    <h2 id="t-serv">Maquila, logística, aseo y consultoría para su operación</h2>
-    <p class="intro">Líneas de servicio y una modalidad de implementación que se combinan según lo que su planta, bodega u oficina necesite.</p>
-    <div class="rejilla">
-      <article class="lin rev">
-        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l8 4.5v9L12 21l-8-4.5v-9z"/><path d="M4 7.5l8 4.5 8-4.5M12 12v9"/></svg></div>
-        <h3>Maquila y empaque</h3>
-        <p class="resumen">Personal para manufactura, empaque y marcación de producto.</p>
-        <ul><li>Apoyo logístico en procesos de manufactura y empaque</li><li>Empaque de productos en línea</li><li>Marcación de paquetería</li><li>Pegado de etiquetas y códigos de barras</li></ul>
-      </article>
-      <article class="lin rev">
-        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 20h18M5 20V9l7-5 7 5v11"/><rect x="9" y="12" width="6" height="8"/></svg></div>
-        <h3>Logística y bodega</h3>
-        <p class="resumen">Manejo de inventario y despacho en picos de operación.</p>
-        <ul><li>Auxiliares de bodega</li><li>Picking y packing</li><li>Recuperación de averías</li><li>Apoyo en despachos</li></ul>
-      </article>
-      <article class="lin rev">
-        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M20 20l-4.9-4.9M7.8 10.6l2 2 3.6-4"/></svg></div>
-        <h3>Calidad</h3>
-        <p class="resumen">Apoyo productivo y trazabilidad de lo que sale de la línea.</p>
-        <ul><li>Apoyo productivo en inspecciones de calidad</li><li>Reportes de unidades ensambladas, averiadas o defectuosas</li></ul>
-      </article>
-      <article class="lin rev">
-        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3l-4.5 8.5M9.5 11.5l5 3.5-3 6c-3.5 0-7-1.5-8.5-4.5z"/><path d="M17 3.5l.6 1.4 1.4.6-1.4.6-.6 1.4-.6-1.4-1.4-.6 1.4-.6z"/></svg></div>
-        <h3>Aseo y oficios varios</h3>
-        <p class="resumen">Oficios varios y aseo donde su operación lo requiera.</p>
-        <ul><li>Plantas de producción</li><li>Oficinas</li><li>Hogar</li></ul>
-      </article>
-      <article class="lin rev">
-        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10v4a1 1 0 001 1h2l7 4V5L7 9H5a1 1 0 00-1 1z"/><path d="M18 9.5a4 4 0 010 5"/></svg></div>
-        <h3>Apoyo comercial</h3>
-        <p class="resumen">Personal para llevar su mensaje a la calle.</p>
-        <ul><li>Apoyo con volanteo</li></ul>
-      </article>
-      <article class="lin modal rev">
-        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21V8l6-3v16M9 21h12V11l-6-3v13"/><path d="M5.5 11h1M5.5 14h1M12 14h1M12 17h1"/></svg></div>
-        <h3>Implementación de procesos</h3>
-        <p class="resumen">Una modalidad que aplica a cualquiera de las líneas anteriores.</p>
-        <ul><li>Dentro de las instalaciones del cliente</li><li>Fuera de las instalaciones del cliente</li></ul>
-      </article>
-      <article class="lin cons rev">
-        <div class="cons-cab">
-          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.600 5.600l2.100 2.100M16.300 16.300l2.100 2.100M18.400 5.600l-2.100 2.100M7.700 16.300l-2.100 2.100"/></svg></div>
-          <h3>Consultoría y mejora de procesos</h3>
-          <p class="resumen">Además de operar, acompañamos a su empresa para que sus procesos sean más ordenados, medibles y eficientes.</p>
+    <div class="explora rev" id="explora" style="--d:1">
+
+      <div class="linea on" data-tono="a">
+        <button class="lin-btn" type="button" id="lb1" aria-expanded="true" aria-controls="lp1"><span class="num" aria-hidden="true">01</span><span class="nom">Maquila y empaque</span><svg class="i fl" aria-hidden="true"><use href="#i-flecha"/></svg></button>
+        <div class="lin-panel" id="lp1" role="region" aria-labelledby="lb1">
+          <div><h3>Maquila y empaque</h3><p class="res">Personal para manufactura, empaque y marcación de producto.</p></div>
+          <svg class="ilus" viewBox="0 0 240 180" aria-hidden="true">
+            <rect x="12" y="142" width="216" height="16" rx="8"/>
+            <circle class="ac" cx="34" cy="150" r="2"/><circle class="ac" cx="74" cy="150" r="2"/><circle class="ac" cx="114" cy="150" r="2"/><circle class="ac" cx="154" cy="150" r="2"/><circle class="ac" cx="194" cy="150" r="2"/>
+            <rect x="24" y="106" width="40" height="36" rx="2"/><path d="M44 106v12"/>
+            <rect x="92" y="90" width="52" height="52" rx="2"/><path d="M92 106h52M118 90v16"/>
+            <rect x="172" y="110" width="40" height="32" rx="2"/><path d="M172 110l-8-14M212 110l8-14M184 110l-3-14M200 110l3-14"/>
+            <rect x="84" y="20" width="72" height="46" rx="6"/><path d="M96 32h28M96 40h16"/>
+            <path class="ac" d="M96 50v10M101 50v10M107 50v10M112 50v10M118 50v10M124 50v10M130 50v10M136 50v10M142 50v10"/>
+            <path class="ac" d="M120 72v12" stroke-dasharray="3 5"/>
+          </svg>
+          <ul><li>Apoyo logístico en procesos de manufactura y empaque</li><li>Empaque de productos en línea</li><li>Marcación de paquetería</li><li>Pegado de etiquetas y códigos de barras</li></ul>
+          <span class="gnum" aria-hidden="true">01</span>
         </div>
-        <ul><li>Diagnóstico y levantamiento de procesos</li><li>Asesoría en optimización de procesos</li><li>Estandarización y documentación de procesos</li><li>Automatización de procesos</li><li>Definición de indicadores de productividad y control</li><li>Consultoría en proyectos</li></ul>
-      </article>
+      </div>
+
+      <div class="linea" data-tono="b">
+        <button class="lin-btn" type="button" id="lb2" aria-expanded="false" aria-controls="lp2"><span class="num" aria-hidden="true">02</span><span class="nom">Logística y bodega</span><svg class="i fl" aria-hidden="true"><use href="#i-flecha"/></svg></button>
+        <div class="lin-panel" id="lp2" role="region" aria-labelledby="lb2">
+          <div><h3>Logística y bodega</h3><p class="res">Manejo de inventario y despacho en picos de operación.</p></div>
+          <svg class="ilus" viewBox="0 0 240 180" aria-hidden="true">
+            <path d="M28 14v146M212 14v146M28 56h184M28 102h184M28 148h184"/>
+            <rect x="42" y="28" width="36" height="28" rx="2"/><rect x="92" y="38" width="26" height="18" rx="2"/><rect x="150" y="24" width="46" height="32" rx="2"/>
+            <rect x="42" y="68" width="50" height="34" rx="2"/><rect x="108" y="80" width="32" height="22" rx="2"/><rect x="156" y="72" width="38" height="30" rx="2"/>
+            <rect x="58" y="116" width="40" height="32" rx="2"/><rect x="118" y="124" width="34" height="24" rx="2"/><rect x="168" y="112" width="30" height="36" rx="2"/>
+            <path class="ac" d="M50 40h14M50 80h20M66 128h14M174 124h14"/>
+          </svg>
+          <ul><li>Auxiliares de bodega</li><li>Picking y packing</li><li>Recuperación de averías</li><li>Apoyo en despachos</li></ul>
+          <span class="gnum" aria-hidden="true">02</span>
+        </div>
+      </div>
+
+      <div class="linea" data-tono="c">
+        <button class="lin-btn" type="button" id="lb3" aria-expanded="false" aria-controls="lp3"><span class="num" aria-hidden="true">03</span><span class="nom">Calidad</span><svg class="i fl" aria-hidden="true"><use href="#i-flecha"/></svg></button>
+        <div class="lin-panel" id="lp3" role="region" aria-labelledby="lb3">
+          <div><h3>Calidad</h3><p class="res">Apoyo productivo y trazabilidad de lo que sale de la línea.</p></div>
+          <svg class="ilus" viewBox="0 0 240 180" aria-hidden="true">
+            <rect x="52" y="24" width="104" height="138" rx="8"/><rect x="82" y="14" width="44" height="18" rx="6" class="rl"/>
+            <rect x="68" y="52" width="16" height="16" rx="3"/><path class="ac" d="M71 60l4 4 6-8"/><path d="M94 60h44"/>
+            <rect x="68" y="84" width="16" height="16" rx="3"/><path class="ac" d="M71 92l4 4 6-8"/><path d="M94 92h36"/>
+            <rect x="68" y="116" width="16" height="16" rx="3"/><path class="ac" d="M72 120l8 8M80 120l-8 8"/><path d="M94 124h40"/>
+            <circle class="rl" cx="168" cy="122" r="24"/><circle cx="168" cy="122" r="24"/><path d="M185 140l22 22"/><path class="ac" d="M158 122l7 7 12-14"/>
+          </svg>
+          <ul class="una"><li>Apoyo productivo en inspecciones de calidad</li><li>Reportes de unidades ensambladas, averiadas o defectuosas</li></ul>
+          <span class="gnum" aria-hidden="true">03</span>
+        </div>
+      </div>
+
+      <div class="linea" data-tono="a">
+        <button class="lin-btn" type="button" id="lb4" aria-expanded="false" aria-controls="lp4"><span class="num" aria-hidden="true">04</span><span class="nom">Aseo y oficios varios</span><svg class="i fl" aria-hidden="true"><use href="#i-flecha"/></svg></button>
+        <div class="lin-panel" id="lp4" role="region" aria-labelledby="lb4">
+          <div><h3>Aseo y oficios varios</h3><p class="res">Oficios varios y aseo donde su operación lo requiera.</p></div>
+          <svg class="ilus" viewBox="0 0 240 180" aria-hidden="true">
+            <path d="M52 14l26 100"/><path d="M44 116l46-14 12 42-52 16z"/><path d="M58 112l8 42M72 108l8 42M86 104l8 42" />
+            <path d="M138 80h64l-9 74h-46z"/><ellipse cx="170" cy="80" rx="32" ry="8"/><path d="M142 80c0-34 56-34 56 0"/>
+            <path d="M152 104h36" class="ac"/>
+            <path class="ac" d="M120 34l3 9 9 3-9 3-3 9-3-9-9-3 9-3zM206 40l2 6 6 2-6 2-2 6-2-6-6-2 6-2z"/>
+            <circle class="ac" cx="186" cy="26" r="5"/><circle class="ac" cx="150" cy="22" r="3"/>
+          </svg>
+          <ul class="una"><li>Plantas de producción</li><li>Oficinas</li><li>Hogar</li></ul>
+          <span class="gnum" aria-hidden="true">04</span>
+        </div>
+      </div>
+
+      <div class="linea" data-tono="b">
+        <button class="lin-btn" type="button" id="lb5" aria-expanded="false" aria-controls="lp5"><span class="num" aria-hidden="true">05</span><span class="nom">Apoyo comercial</span><svg class="i fl" aria-hidden="true"><use href="#i-flecha"/></svg></button>
+        <div class="lin-panel" id="lp5" role="region" aria-labelledby="lb5">
+          <div><h3>Apoyo comercial</h3><p class="res">Personal para llevar su mensaje a la calle.</p></div>
+          <svg class="ilus" viewBox="0 0 240 180" aria-hidden="true">
+            <path d="M26 74h18v38H26a4 4 0 01-4-4V78a4 4 0 014-4z"/><path d="M44 74l66-34v106l-66-34"/><path d="M60 114l8 34h18l-6-30"/>
+            <path class="ac" d="M126 68a24 24 0 010 48M142 54a44 44 0 010 76"/>
+            <g transform="rotate(8 188 62)"><rect x="170" y="28" width="38" height="50" rx="3"/><path class="ac" d="M178 40h22M178 48h22M178 56h14"/></g>
+            <g transform="rotate(-6 190 128)"><rect x="172" y="104" width="38" height="50" rx="3"/><path class="ac" d="M180 116h22M180 124h22M180 132h14"/></g>
+          </svg>
+          <ul class="una"><li>Apoyo con volanteo</li></ul>
+          <span class="gnum" aria-hidden="true">05</span>
+        </div>
+      </div>
+
+      <div class="linea" data-tono="c">
+        <button class="lin-btn" type="button" id="lb6" aria-expanded="false" aria-controls="lp6"><span class="num" aria-hidden="true">06</span><span class="nom">Implementación de procesos</span><svg class="i fl" aria-hidden="true"><use href="#i-flecha"/></svg></button>
+        <div class="lin-panel" id="lp6" role="region" aria-labelledby="lb6">
+          <div><h3>Implementación de procesos</h3><p class="res">Una modalidad que aplica a cualquiera de las líneas anteriores.</p></div>
+          <svg class="ilus" viewBox="0 0 240 180" aria-hidden="true">
+            <rect x="74" y="50" width="92" height="110" rx="3"/><path d="M62 160h116"/>
+            <rect x="86" y="66" width="14" height="14"/><rect x="113" y="66" width="14" height="14"/><rect x="140" y="66" width="14" height="14"/>
+            <rect x="86" y="92" width="14" height="14"/><rect x="113" y="92" width="14" height="14"/><rect x="140" y="92" width="14" height="14"/>
+            <rect x="108" y="124" width="24" height="36"/>
+            <path class="ac" d="M10 118h46M44 106l12 12-12 12M230 118h-46M196 106l-12 12 12 12"/>
+            <circle class="ac" cx="120" cy="28" r="11"/><path class="ac" d="M120 10v6M120 40v6M102 28h6M132 28h6M107 15l4 4M129 37l4 4M133 15l-4 4M111 37l-4 4"/>
+          </svg>
+          <ul class="una"><li>Dentro de las instalaciones del cliente</li><li>Fuera de las instalaciones del cliente</li></ul>
+          <span class="gnum" aria-hidden="true">06</span>
+        </div>
+      </div>
+
+      <div class="linea k" data-tono="k">
+        <button class="lin-btn" type="button" id="lb7" aria-expanded="false" aria-controls="lp7"><span class="num" aria-hidden="true">07</span><span class="nom">Consultoría y mejora de procesos</span><svg class="i fl" aria-hidden="true"><use href="#i-flecha"/></svg></button>
+        <div class="lin-panel" id="lp7" role="region" aria-labelledby="lb7">
+          <div><h3>Consultoría y mejora de procesos</h3><p class="res">Además de operar, acompañamos a su empresa para que sus procesos sean más ordenados, medibles y eficientes.</p></div>
+          <svg class="ilus" viewBox="0 0 240 180" aria-hidden="true">
+            <path d="M24 16v140h192"/>
+            <rect x="44" y="108" width="24" height="48"/><rect x="82" y="88" width="24" height="68"/><rect x="120" y="66" width="24" height="90"/><rect x="158" y="44" width="24" height="112"/>
+            <path class="ac" d="M40 92l44-26 38-4 56-34M164 28h16v16"/>
+            <circle class="ac" cx="206" cy="92" r="10"/><path class="ac" d="M206 74v6M206 104v6M188 92h6M218 92h6M193 79l4 4M215 101l4 4M219 79l-4 4M197 101l-4 4"/>
+          </svg>
+          <ul><li>Diagnóstico y levantamiento de procesos</li><li>Asesoría en optimización de procesos</li><li>Estandarización y documentación de procesos</li><li>Automatización de procesos</li><li>Definición de indicadores de productividad y control</li><li>Consultoría en proyectos</li></ul>
+          <span class="gnum" aria-hidden="true">07</span>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
 
-<section class="sec" id="como-trabajamos" aria-labelledby="t-como">
-  <div class="cont">
-    <span class="sobre">Cómo trabajamos</span>
-    <h2 id="t-como">Cuatro pasos, con control en cada uno</h2>
-    <ol class="pasos">
-      <li class="paso rev"><h3>Entendemos la necesidad</h3><p>Definimos con usted las actividades, los tiempos y el personal que su proceso requiere. Si lo necesita, iniciamos con un diagnóstico de sus procesos.</p></li>
-      <li class="paso rev"><h3>Asignamos personal y supervisión</h3><p>Personal capacitado para cada función, con supervisión y control del proceso.</p></li>
-      <li class="paso rev"><h3>Operamos con control y reportes</h3><p>Papelería y formatos propios, y reportes de unidades ensambladas, averiadas o defectuosas.</p></li>
-      <li class="paso rev"><h3>Usted confirma y consulta en el portal</h3><p>Confirme las horas de cada día, califique el servicio y revise el historial por semanas.</p></li>
-    </ol>
+<section class="banda proceso" id="como-trabajamos" aria-labelledby="t-como">
+  <div class="deco" aria-hidden="true">
+    <div class="par" data-par=".06"><svg class="gira lento" viewBox="-110 -110 220 220" fill="none"><use href="#eng1" stroke="#062321" stroke-opacity=".22" stroke-width="2" stroke-linejoin="round"/></svg></div>
+    <div class="par par2" data-par="-.04"><svg class="gira rev-g" viewBox="-110 -110 220 220" fill="none"><use href="#eng2" stroke="#062321" stroke-opacity=".25" stroke-width="5" stroke-linejoin="round"/></svg></div>
   </div>
-</section>
-
-<section class="sec incluye" id="incluye" aria-labelledby="t-inc">
   <div class="cont">
-    <div class="rev">
-      <span class="sobre">Qué incluye la propuesta</span>
-      <h2 id="t-inc">Personal, dotación y prestaciones dentro de la propuesta</h2>
-      <p class="intro">Maquilogis pone a disposición del proceso el personal operativo y de control necesario para ejecutar las actividades.</p>
+    <div class="cab-sec rev">
+      <div><span class="sobre">Cómo trabajamos</span>
+      <h2 id="t-como">Cuatro pasos, con <em>control</em> en cada uno</h2></div>
     </div>
-    <ul class="lista-inc">
-      <li class="rev"><b>Dotación básica de ley</b></li>
-      <li class="rev"><b>Prestaciones sociales</b><p>De acuerdo con la ley.</p></li>
-      <li class="rev"><b>Personal operativo y de control</b><ul><li>Aportes y prestaciones sociales</li><li>Supervisión y control del proceso</li><li>Papelería y formatos propios de la empresa</li></ul></li>
-      <li class="rev"><b>Reportes del proceso</b><p>Unidades ensambladas, averiadas o defectuosas.</p></li>
-    </ul>
+    <div class="linea-proc" id="linea-proc">
+      <div class="track" aria-hidden="true"><div class="fill"></div><div class="caja"><svg class="i"><use href="#i-cubo"/></svg></div></div>
+      <ol class="pasos" data-esc>
+        <li class="paso rev"><h3>Entendemos la necesidad</h3><p>Definimos con usted las actividades, los tiempos y el personal que su proceso requiere. Si lo necesita, iniciamos con un diagnóstico de sus procesos.</p></li>
+        <li class="paso rev" style="--d:1"><h3>Asignamos personal y supervisión</h3><p>Personal capacitado para cada función, con supervisión y control del proceso.</p></li>
+        <li class="paso rev" style="--d:2"><h3>Operamos con control y reportes</h3><p>Papelería y formatos propios, y reportes de unidades ensambladas, averiadas o defectuosas.</p></li>
+        <li class="paso rev" style="--d:3"><h3>Usted confirma y consulta en el portal</h3><p>Confirme las horas de cada día, califique el servicio y revise el historial por semanas.</p></li>
+      </ol>
+    </div>
   </div>
 </section>
 
-<section class="sec portal oscuro" id="portal" aria-labelledby="t-portal">
-  <svg class="fondo" viewBox="-110 -110 220 220" fill="none" aria-hidden="true"><path d="M82.1,-18.0 L99.3,-12.2 L99.3,12.2 L82.1,18.0 L81.7,19.4 L94.7,32.1 L84.1,54.0 L66.1,51.8 L65.2,53.0 L71.4,70.0 L52.4,85.2 L37.1,75.4 L35.8,76.0 L34.0,94.1 L10.2,99.5 L0.8,84.0 L-0.8,84.0 L-10.2,99.5 L-34.0,94.1 L-35.8,76.0 L-37.1,75.4 L-52.4,85.2 L-71.4,70.0 L-65.2,53.0 L-66.1,51.8 L-84.1,54.0 L-94.7,32.1 L-81.7,19.4 L-82.1,18.0 L-99.3,12.2 L-99.3,-12.2 L-82.1,-18.0 L-81.7,-19.4 L-94.7,-32.1 L-84.1,-54.0 L-66.1,-51.8 L-65.2,-53.0 L-71.4,-70.0 L-52.4,-85.2 L-37.1,-75.4 L-35.8,-76.0 L-34.0,-94.1 L-10.2,-99.5 L-0.8,-84.0 L0.8,-84.0 L10.2,-99.5 L34.0,-94.1 L35.8,-76.0 L37.1,-75.4 L52.4,-85.2 L71.4,-70.0 L65.2,-53.0 L66.1,-51.8 L84.1,-54.0 L94.7,-32.1 L81.7,-19.4Z" stroke="#fff" stroke-width="3" stroke-linejoin="round"/></svg>
+<section class="banda portal oscuro" id="portal" aria-labelledby="t-portal">
+  <div class="deco" aria-hidden="true">
+    <div class="par logo-g" data-par=".05"><img src="logo.png" alt="" width="192" height="192" style="width:100%;height:auto"></div>
+    <div class="par par2" data-par="-.05"><svg class="gira lento" viewBox="-110 -110 220 220" fill="none"><use href="#eng1" stroke="#14504a" stroke-width="2" stroke-linejoin="round"/></svg></div>
+  </div>
   <div class="cont">
-    <span class="sobre">Portal de Maquilogis</span>
-    <h2 id="t-portal">Un acceso para cada perfil</h2>
-    <p class="intro">Con el portal de clientes usted sigue el servicio día a día. Elija su perfil para ingresar.</p>
-    <div class="accesos">
+    <div class="cab-sec rev">
+      <div><span class="sobre">Portal de Maquilogis</span>
+      <h2 id="t-portal">Un acceso para <em>cada perfil</em></h2></div>
+      <p class="intro">Con el portal de clientes usted sigue el servicio día a día. Elija su perfil para ingresar.</p>
+    </div>
+    <div class="accesos" data-esc>
       <a class="acc rev" href="portal.html?perfil=cliente">
-        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21V8l6-3v16M9 21h12V11l-6-3v13"/></svg></div>
         <h3>Clientes</h3>
         <p>Vea el personal asignado, confirme las horas de cada día, califique el servicio, consulte el historial por semanas y solicite o cancele personal en línea.</p>
-        <span class="ir">Ingresar como cliente <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        <span class="ir"><svg class="i" aria-hidden="true"><use href="#i-flecha"/></svg></span><span class="sr">Ingresar como cliente</span>
       </a>
-      <a class="acc rev" href="portal.html?perfil=empleado">
-        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"/></svg></div>
+      <a class="acc rev" style="--d:1" href="portal.html?perfil=empleado">
         <h3>Colaboradores</h3>
         <p>Consulte su programación de turnos.</p>
-        <span class="ir">Ingresar como colaborador <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        <span class="ir"><svg class="i" aria-hidden="true"><use href="#i-flecha"/></svg></span><span class="sr">Ingresar como colaborador</span>
       </a>
-      <a class="acc rev" href="portal.html?perfil=admin">
-        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8M12 17v4M7 12l3-3 2.5 2.5L17 8"/></svg></div>
+      <a class="acc rev" style="--d:2" href="portal.html?perfil=admin">
         <h3>Equipo administrativo</h3>
         <p>Administre la programación del personal, las fichas de empleados y las de clientes.</p>
-        <span class="ir">Ingresar al panel <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        <span class="ir"><svg class="i" aria-hidden="true"><use href="#i-flecha"/></svg></span><span class="sr">Ingresar al panel</span>
       </a>
     </div>
     <p class="nota-portal">El portal está en implementación. Para una demostración, comuníquese por los canales de contacto.</p>
   </div>
 </section>
 
-<section class="sec pdf" id="portafolio-pdf" aria-labelledby="t-pdf">
+<section class="banda faq" id="preguntas-frecuentes" aria-labelledby="t-faq">
+  <div class="deco" aria-hidden="true"><div class="par q" data-par=".04">?</div></div>
   <div class="cont">
-    <div class="caja rev">
-      <div class="miniatura" aria-hidden="true"><img src="logo.png" alt="" width="36" height="36"><div><small>Maquilogis</small><b>Portafolio de servicios</b></div></div>
-      <div>
-        <h2 id="t-pdf">Portafolio de servicios en PDF</h2>
-        <p class="intro" style="margin-top:14px">Descargue el portafolio para revisarlo con su equipo o compartirlo internamente.</p>
-      </div>
-      <a class="btn btn-p" href="portafolio-maquilogis.pdf" download>
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11m-5-5l5 5 5-5M5 20h14"/></svg>Descargar portafolio en PDF
-      </a>
-    </div>
-  </div>
-</section>
-
-<section class="sec faq" id="preguntas-frecuentes" aria-labelledby="t-faq" style="padding-top:0">
-  <div class="cont">
-    <span class="sobre">Preguntas frecuentes</span>
-    <h2 id="t-faq">Lo que las empresas suelen preguntar</h2>
-    <div class="preguntas">
+    <div class="rev"><span class="sobre">Preguntas frecuentes</span>
+    <h2 id="t-faq">Lo que las empresas suelen <em>preguntar</em></h2></div>
+    <div class="pregs" data-esc>
       <details class="rev"><summary>¿Qué servicios presta Maquilogis?</summary><p>Maquilogis presta apoyo logístico en manufactura y empaque, marcación y etiquetado con códigos de barras, auxiliares de bodega, picking y packing, recuperación de averías, apoyo en inspecciones de calidad, aseo y oficios varios, y apoyo con volanteo. También ofrece implementación de procesos y consultoría y mejora de procesos.</p></details>
-      <details class="rev"><summary>¿Pueden aportar personal temporal o por días?</summary><p>Sí. Maquilogis aporta recurso humano temporal o por días, pensado para los picos de producción y despacho.</p></details>
-      <details class="rev"><summary>¿Qué incluye la propuesta?</summary><p>Incluye la dotación básica de ley, las prestaciones sociales de acuerdo con la ley y el personal operativo y de control necesario para ejecutar las actividades, con aportes, supervisión y control del proceso, papelería y formatos propios, y reportes de unidades ensambladas, averiadas o defectuosas.</p></details>
-      <details class="rev"><summary>¿El servicio se presta dentro o fuera de las instalaciones del cliente?</summary><p>Ambas modalidades son posibles. Maquilogis implementa procesos dentro o fuera de las instalaciones del cliente.</p></details>
-      <details class="rev"><summary>¿En qué zona atiende Maquilogis?</summary><p>Maquilogis está en Itagüí, Antioquia, y atiende empresas en Itagüí, Medellín y el Valle de Aburrá.</p></details>
-      <details class="rev"><summary>¿Cómo solicito una propuesta?</summary><p>Escriba a ventas@maquilogis.com, llame al 300 169 8650 o escriba por WhatsApp a ese mismo número. Le respondemos con una propuesta ajustada a sus actividades y a sus tiempos de producción y despacho.</p></details>
+      <details class="rev" style="--d:1"><summary>¿Pueden aportar personal temporal o por días?</summary><p>Sí. Maquilogis aporta recurso humano temporal o por días, pensado para los picos de producción y despacho.</p></details>
+      <details class="rev" style="--d:2"><summary>¿Qué incluye la propuesta?</summary><p>Incluye la dotación básica de ley, las prestaciones sociales de acuerdo con la ley y el personal operativo y de control necesario para ejecutar las actividades, con aportes, supervisión y control del proceso, papelería y formatos propios, y reportes de unidades ensambladas, averiadas o defectuosas.</p></details>
+      <details class="rev" style="--d:3"><summary>¿El servicio se presta dentro o fuera de las instalaciones del cliente?</summary><p>Ambas modalidades son posibles. Maquilogis implementa procesos dentro o fuera de las instalaciones del cliente.</p></details>
+      <details class="rev" style="--d:4"><summary>¿En qué zona atiende Maquilogis?</summary><p>Maquilogis está en Itagüí, Antioquia, y atiende empresas en Itagüí, Medellín y el Valle de Aburrá.</p></details>
+      <details class="rev" style="--d:5"><summary>¿Cómo solicito una propuesta?</summary><p>Escriba a ventas@maquilogis.com, llame al 300 169 8650 o escriba por WhatsApp a ese mismo número. Le respondemos con una propuesta ajustada a sus actividades y a sus tiempos de producción y despacho.</p></details>
     </div>
   </div>
 </section>
 
-<section class="sec contacto" id="contacto" aria-labelledby="t-con" style="padding-top:0">
+<section class="banda final" id="contacto" aria-labelledby="t-con">
+  <div class="deco" aria-hidden="true"><div class="par" data-par=".05"><svg class="gira rev-g lento" viewBox="-110 -110 220 220" fill="none"><use href="#eng1" stroke="#fff" stroke-opacity=".16" stroke-width="2.4" stroke-linejoin="round"/></svg></div></div>
   <div class="cont">
-    <span class="sobre">Contacto</span>
-    <h2 id="t-con">Cuéntenos qué necesita su operación</h2>
-    <p class="intro">Le respondemos con una propuesta ajustada a sus actividades y a sus tiempos de producción y despacho.</p>
-    <div class="vias">
-      <a class="via" href="tel:+573001698650">
-        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 005 5L15 13l5 2v4a2 2 0 01-2 2A16 16 0 013 6a2 2 0 012-2z"/></svg></div>
-        <div><small>Teléfono</small><b>300 169 8650</b><span class="d">Llame directamente</span></div>
-      </a>
-      <a class="via" href="https://wa.me/573001698650" rel="noopener" target="_blank">
-        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20l1.3-4.2A8 8 0 1112 20a8 8 0 01-3.8-1z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5l1-1.5-2-1-.8.8c-.8-.4-1.600-1.200-2-2l.8-.8-1-2z"/></svg></div>
-        <div><small>WhatsApp</small><b>300 169 8650</b><span class="d">Escríbanos un mensaje<span class="sr"> (abre en una pestaña nueva)</span></span></div>
-      </a>
-      <a class="via" href="mailto:ventas@maquilogis.com">
-        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3.500 7l8.500 6 8.500-6"/></svg></div>
-        <div><small>Correo</small><b>ventas@maquilogis.com</b><span class="d">Solicite su propuesta</span></div>
-      </a>
-      <div class="via fila">
-        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s7-6.200 7-11.500A7 7 0 005 9.500C5 14.800 12 21 12 21z"/><circle cx="12" cy="9.500" r="2.500"/></svg></div>
-        <div><small>Ubicación</small><b>Itagüí, Antioquia</b></div>
+    <div class="fin-cab">
+      <div class="rev">
+        <span class="sobre">Contacto</span>
+        <h2 id="t-con">Cuéntenos qué necesita <em>su operación</em></h2>
+        <p class="intro">Le respondemos con una propuesta ajustada a sus actividades y a sus tiempos de producción y despacho.</p>
+        <p class="ubic"><svg class="i" aria-hidden="true"><use href="#i-pin"/></svg>Itagüí, Antioquia</p>
+      </div>
+      <div class="pdf rev" id="portafolio-pdf" style="--d:2">
+        <div class="miniatura" aria-hidden="true"><img src="logo.png" alt="" width="30" height="30"><div><small>Maquilogis</small><b>Portafolio de servicios</b></div></div>
+        <div>
+          <h3>Portafolio en PDF</h3>
+          <p>Descárguelo para revisarlo con su equipo o compartirlo internamente.</p>
+          <a class="btn btn-b" href="portafolio-maquilogis.pdf" download>Descargar PDF <svg class="i" aria-hidden="true"><use href="#i-pdf"/></svg></a>
+        </div>
       </div>
     </div>
+    <div class="vias" data-esc>
+      <a class="via rev" href="tel:+573001698650"><span class="ic"><svg class="i" aria-hidden="true"><use href="#i-tel"/></svg></span><span><small>Teléfono</small><b>300 169 8650</b></span><svg class="i fl" aria-hidden="true"><use href="#i-flecha"/></svg></a>
+      <a class="via rev" style="--d:1" href="https://wa.me/573001698650" rel="noopener" target="_blank"><span class="ic"><svg class="i" aria-hidden="true"><use href="#i-wa"/></svg></span><span><small>WhatsApp<span class="sr"> (abre en una pestaña nueva)</span></small><b>300 169 8650</b></span><svg class="i fl" aria-hidden="true"><use href="#i-flecha"/></svg></a>
+      <a class="via rev" style="--d:2" href="mailto:ventas@maquilogis.com"><span class="ic"><svg class="i" aria-hidden="true"><use href="#i-mail"/></svg></span><span><small>Correo</small><b>ventas@maquilogis.com</b></span><svg class="i fl" aria-hidden="true"><use href="#i-flecha"/></svg></a>
+    </div>
   </div>
+  <div class="banda-transp" aria-hidden="true"><div class="mov"></div></div>
 </section>
 
 </main>
@@ -688,8 +931,8 @@ html.js .rev.ya{opacity:1;transform:none}
 <footer class="pie">
   <div class="cont">
     <div>
-      <a class="marca" href="#inicio" aria-label="Maquilogis, volver al inicio"><img src="logo.png" alt="" width="44" height="44"><b>Maquilogis</b></a>
-      <p style="margin-top:14px">Aliados en maquila, logística y talento operativo.</p>
+      <a class="marca" href="#inicio" aria-label="Maquilogis, volver al inicio"><img src="logo.png" alt="" width="42" height="42"><b>Maquilogis</b></a>
+      <p style="margin-top:12px">Aliados en maquila, logística y talento operativo.</p>
     </div>
     <nav aria-label="Pie de página"><ul>
       <li><a href="#servicios">Servicios</a></li><li><a href="#como-trabajamos">Cómo trabajamos</a></li><li><a href="#incluye">Qué incluye</a></li><li><a href="#portal">Portal</a></li><li><a href="#preguntas-frecuentes">Preguntas frecuentes</a></li><li><a href="#contacto">Contacto</a></li>
@@ -701,6 +944,7 @@ html.js .rev.ya{opacity:1;transform:none}
 <script>
 (function(){
   var h = document.documentElement; h.classList.add("js");
+  var reducido = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   var b = document.getElementById("burger"), m = document.getElementById("menu");
   function cerrar(foco){ m.classList.remove("abierto"); b.setAttribute("aria-expanded","false"); b.setAttribute("aria-label","Abrir menú"); if(foco) b.focus(); }
   b.addEventListener("click", function(){
@@ -709,12 +953,75 @@ html.js .rev.ya{opacity:1;transform:none}
   m.addEventListener("click", function(e){ if(e.target.closest("a")) cerrar(false); });
   document.addEventListener("keydown", function(e){ if(e.key === "Escape" && m.classList.contains("abierto")) cerrar(true); });
   window.addEventListener("resize", function(){ if(window.innerWidth >= 1024) cerrar(false); });
+
+  /* aparición escalonada */
+  document.querySelectorAll("[data-esc]").forEach(function(c){ Array.prototype.forEach.call(c.children, function(e,i){ if(!e.style.getPropertyValue("--d")) e.style.setProperty("--d", i); }); });
   var els = document.querySelectorAll(".rev");
-  if(!("IntersectionObserver" in window) || window.matchMedia("(prefers-reduced-motion: reduce)").matches){ els.forEach(function(e){ e.classList.add("ya"); }); return; }
-  var io = new IntersectionObserver(function(es){ es.forEach(function(x){ if(x.isIntersecting){ x.target.classList.add("ya"); io.unobserve(x.target); } }); }, { rootMargin: "0px 0px -8% 0px" });
-  els.forEach(function(e){ io.observe(e); });
-  /* respaldo: si algo no se revela (impresión, captura), se muestra todo */
-  window.addEventListener("beforeprint", function(){ els.forEach(function(e){ e.classList.add("ya"); }); });
+  if(!("IntersectionObserver" in window) || reducido){ els.forEach(function(e){ e.classList.add("ya"); }); }
+  else {
+    var io = new IntersectionObserver(function(es){ es.forEach(function(x){ if(x.isIntersecting){ x.target.classList.add("ya"); io.unobserve(x.target); } }); }, { rootMargin: "0px 0px -8% 0px" });
+    els.forEach(function(e){ io.observe(e); });
+    window.addEventListener("beforeprint", function(){ els.forEach(function(e){ e.classList.add("ya"); }); });
+  }
+
+  /* explorador de servicios: clic, teclado y cursor; acordeón en celular */
+  var ex = document.getElementById("explora");
+  var lins = Array.prototype.slice.call(ex.querySelectorAll(".linea"));
+  var esc = window.matchMedia("(min-width:900px)"), puntero = window.matchMedia("(hover:hover)");
+  function abrir(i, foco){
+    lins.forEach(function(l,k){ var on = k === i; l.classList.toggle("on", on); l.querySelector(".lin-btn").setAttribute("aria-expanded", on ? "true" : "false"); });
+    if(foco) lins[i].querySelector(".lin-btn").focus();
+  }
+  lins.forEach(function(l,i){
+    var bt = l.querySelector(".lin-btn");
+    bt.addEventListener("click", function(){
+      if(!esc.matches && l.classList.contains("on")){ l.classList.remove("on"); bt.setAttribute("aria-expanded","false"); } else { abrir(i); }
+    });
+    bt.addEventListener("mouseenter", function(){ if(esc.matches && puntero.matches) abrir(i); });
+    bt.addEventListener("focus", function(){ if(esc.matches) abrir(i); });
+    bt.addEventListener("keydown", function(e){
+      var k = e.key; if(["ArrowDown","ArrowUp","Home","End"].indexOf(k) < 0) return;
+      e.preventDefault();
+      var n = k === "Home" ? 0 : k === "End" ? lins.length-1 : (i + (k === "ArrowDown" ? 1 : -1) + lins.length) % lins.length;
+      if(esc.matches) abrir(n, true); else lins[n].querySelector(".lin-btn").focus();
+    });
+  });
+
+  /* cinta: pausa manual */
+  var cinta = document.getElementById("cinta"), pb = document.getElementById("pausar");
+  pb.addEventListener("click", function(){
+    var p = cinta.classList.toggle("pausa");
+    pb.setAttribute("aria-pressed", p ? "true" : "false");
+    pb.setAttribute("aria-label", p ? "Reanudar la cinta de servicios" : "Pausar la cinta de servicios");
+  });
+
+  /* línea de proceso y movimiento con el desplazamiento */
+  var lp = document.getElementById("linea-proc"), pasos = Array.prototype.slice.call(lp.querySelectorAll(".paso"));
+  var par = Array.prototype.slice.call(document.querySelectorAll("[data-par]"));
+  function pintarProc(p){
+    lp.style.setProperty("--prog", p.toFixed(3));
+    pasos.forEach(function(s,i){ s.classList.toggle("lleno", p >= (i / (pasos.length - 1)) * 0.96 + (i === 0 ? 0.01 : 0)); });
+  }
+  if(reducido){ pintarProc(1); }
+  else {
+    var espera = false;
+    var cuadro = function(){
+      espera = false;
+      var vh = window.innerHeight;
+      par.forEach(function(el){
+        var s = el.closest("section"); var r = s.getBoundingClientRect();
+        if(r.bottom < -200 || r.top > vh + 200) return;
+        var c = r.top + r.height/2 - vh/2, f = parseFloat(el.getAttribute("data-par"));
+        el.style.setProperty("--py", (c * f).toFixed(1)); el.style.setProperty("--pr", (c * f * .12).toFixed(2));
+      });
+      var q = lp.getBoundingClientRect();
+      var p = (vh * .82 - q.top) / (Math.max(q.height, vh * .35) * .95);
+      pintarProc(Math.max(0, Math.min(1, p)));
+    };
+    window.addEventListener("scroll", function(){ if(!espera){ espera = true; requestAnimationFrame(cuadro); } }, { passive: true });
+    window.addEventListener("resize", cuadro);
+    cuadro();
+  }
 })();
 </script>
 </body>
