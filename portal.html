@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="es-CO">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Portal de Maquilogis | En implementación</title>
+<meta name="description" content="El portal de clientes, colaboradores y equipo administrativo de Maquilogis está en implementación.">
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#0a3532">
+<link rel="icon" type="image/png" href="logo.png">
+<link rel="apple-touch-icon" href="logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--turquesa:#0fa99d;--petroleo:#0b7f76;--petroleo-osc:#096f67;--noche:#0a3532;--texto:#16282a;--suave:#4f585c;--tinte:#eef7f6;--linea:#d6e3e2}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;font-family:Roboto,-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;font-size:17px;line-height:1.6;color:var(--texto);background:linear-gradient(180deg,#f4fbfa,#fff);min-height:100vh;display:flex;flex-direction:column;overflow-x:hidden}
+img,svg{display:block;max-width:100%}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--turquesa);outline-offset:3px;border-radius:4px}
+.cab{background:#fff;border-bottom:1px solid var(--linea)}
+.cab div{max-width:1180px;margin:0 auto;padding:0 20px;height:68px;display:flex;align-items:center}
+.marca{display:flex;align-items:center;gap:12px;text-decoration:none}
+.marca img{width:44px;height:44px}
+.marca b{font-size:20px;color:var(--noche)}
+main{flex:1;position:relative;overflow:hidden;display:grid;place-items:center;padding:56px 20px}
+.gear{position:absolute;right:-200px;top:-140px;width:640px;opacity:.07;pointer-events:none}
+.caja{position:relative;width:100%;max-width:640px;background:#fff;border:1px solid var(--linea);border-radius:20px;padding:clamp(28px,6vw,52px);box-shadow:0 20px 50px rgba(10,53,50,.08)}
+.sobre{display:inline-flex;align-items:center;gap:10px;font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--petroleo-osc)}
+.sobre::before{content:"";width:28px;height:3px;background:var(--turquesa);border-radius:2px}
+h1{margin:14px 0 0;font-size:clamp(28px,5vw,40px);line-height:1.15;letter-spacing:-.02em;color:var(--noche)}
+p{margin:16px 0 0;color:var(--suave)}
+.vias{display:grid;gap:10px;margin-top:28px}
+.btn{display:flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:12px 22px;border-radius:10px;font:inherit;font-weight:500;font-size:16px;text-decoration:none;border:2px solid var(--noche);color:var(--noche);background:#fff;transition:background .2s,color .2s}
+.btn:hover{background:var(--noche);color:#fff}
+.btn svg{width:18px;height:18px;flex:none}
+.volver{margin-top:28px;display:flex;flex-wrap:wrap;gap:12px}
+.volver .p{background:var(--petroleo);border-color:var(--petroleo);color:#fff}
+.volver .p:hover{background:var(--petroleo-osc);border-color:var(--petroleo-osc)}
+@media (min-width:640px){.vias{grid-template-columns:repeat(3,1fr)}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<header class="cab"><div><a class="marca" href="index.html" aria-label="Maquilogis, volver al sitio"><img src="logo.png" alt="" width="44" height="44"><b>Maquilogis</b></a></div></header>
+<main id="contenido">
+<svg class="gear" viewBox="-110 -110 220 220" fill="none" aria-hidden="true"><path d="M82.1,-18.0 L99.3,-12.2 L99.3,12.2 L82.1,18.0 L81.7,19.4 L94.7,32.1 L84.1,54.0 L66.1,51.8 L65.2,53.0 L71.4,70.0 L52.4,85.2 L37.1,75.4 L35.8,76.0 L34.0,94.1 L10.2,99.5 L0.8,84.0 L-0.8,84.0 L-10.2,99.5 L-34.0,94.1 L-35.8,76.0 L-37.1,75.4 L-52.4,85.2 L-71.4,70.0 L-65.2,53.0 L-66.1,51.8 L-84.1,54.0 L-94.7,32.1 L-81.7,19.4 L-82.1,18.0 L-99.3,12.2 L-99.3,-12.2 L-82.1,-18.0 L-81.7,-19.4 L-94.7,-32.1 L-84.1,-54.0 L-66.1,-51.8 L-65.2,-53.0 L-71.4,-70.0 L-52.4,-85.2 L-37.1,-75.4 L-35.8,-76.0 L-34.0,-94.1 L-10.2,-99.5 L-0.8,-84.0 L0.8,-84.0 L10.2,-99.5 L34.0,-94.1 L35.8,-76.0 L37.1,-75.4 L52.4,-85.2 L71.4,-70.0 L65.2,-53.0 L66.1,-51.8 L84.1,-54.0 L94.7,-32.1 L81.7,-19.4Z" stroke="#0a3532" stroke-width="3" stroke-linejoin="round"/></svg>
+<section class="caja" aria-labelledby="titulo">
+  <span class="sobre">Portal de Maquilogis</span>
+  <h1 id="titulo">Portal de clientes, colaboradores y equipo administrativo</h1>
+  <p>El portal está en implementación. Allí los clientes verán el personal asignado, confirmarán las horas y solicitarán personal en línea, y los colaboradores consultarán su programación.</p>
+  <p>Para una demostración, comuníquese con nosotros por cualquiera de estos canales.</p>
+  <div class="vias">
+    <a class="btn" href="tel:+573001698650"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.500 1.500a11 11 0 005 5L15 13l5 2v4a2 2 0 01-2 2A16 16 0 013 6a2 2 0 012-2z"/></svg>Llamar</a>
+    <a class="btn" href="https://wa.me/573001698650" target="_blank" rel="noopener">WhatsApp<span class="sr" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)"> (abre en una pestaña nueva)</span></a>
+    <a class="btn" href="mailto:ventas@maquilogis.com">Correo</a>
+  </div>
+  <div class="volver"><a class="btn p" href="index.html">Volver al sitio</a></div>
+</section>
+</main>
+<script>
+(function(){
+  var t = {cliente:"Portal de clientes", empleado:"Portal de colaboradores", admin:"Portal del equipo administrativo"};
+  var m = /[?&]perfil=([^&#]*)/.exec(location.search), k = m ? decodeURIComponent(m[1]) : "";
+  if(Object.prototype.hasOwnProperty.call(t, k)){
+    document.getElementById("titulo").textContent = t[k];
+    document.title = t[k] + " de Maquilogis | En implementación";
+  }
+})();
+</script>
+</body>
+</html>
