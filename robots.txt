@@ -1,4 +1,2 @@
 User-agent: *
-Allow: /
-
-Sitemap: https://camil1693.github.io/Maquilogis-web/sitemap.xml
+Disallow: /
