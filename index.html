@@ -155,12 +155,12 @@ html:not(.js) .burger{display:none}
 .pista li .i{width:22px;height:22px;margin:0 28px;stroke-width:2.2}
 .cinta.pausa .pista,.cinta:hover .pista{animation-play-state:paused}
 @keyframes marquesina{to{transform:translateX(-50%)}}
-.pausar{position:absolute;right:calc(3% + 14px);top:50%;transform:translateY(-50%);width:44px;height:44px;border-radius:50%;border:0;background:var(--noche);color:var(--menta);display:grid;place-items:center;cursor:pointer;z-index:2}
+.pausar{position:absolute;right:max(16px,calc((100vw - var(--ancho))/2 + 20px));top:-2px;width:44px;height:44px;border-radius:50%;border:2px solid var(--turquesa);background:var(--noche);color:var(--menta);box-shadow:0 6px 16px rgba(0,0,0,.25);display:grid;place-items:center;cursor:pointer;z-index:2}
 .pausar .i{width:20px;height:20px}
 .pausar .play{display:none}
 .pausar[aria-pressed="true"] .play{display:block}
 .pausar[aria-pressed="true"] .pausa-i{display:none}
-.pausar:focus-visible{outline-color:#fff}
+.pausar:focus-visible{outline:3px solid var(--turquesa);outline-offset:3px}
 
 /* quiénes somos + qué incluye */
 .somos{z-index:3;padding:calc(var(--d) + 40px) 0 36px}
@@ -261,7 +261,7 @@ html:not(.js) .burger{display:none}
 .paso.lleno::before{background:var(--tinta);color:var(--turquesa);transform:scale(1.12)}
 .paso h3{font-size:22px;line-height:1.12;font-weight:800;letter-spacing:-.025em;padding-top:10px}
 .paso p{margin-top:8px;font-size:16px;line-height:1.5;max-width:30em}
-@media (min-width:768px){
+@media (min-width:900px){
   .pasos{grid-template-columns:repeat(4,1fr);gap:0 36px}
   .paso{padding:68px 0 0 0}
   .paso h3{padding-top:0}
@@ -365,7 +365,6 @@ html.js .rev.ya{opacity:1;transform:none}
 
 @media (min-width:640px){
   .pilares{grid-template-columns:repeat(3,1fr)}
-  .vias{grid-template-columns:repeat(3,1fr)}
   .inc{grid-template-columns:1fr 1fr}
 }
 @media (min-width:900px){
@@ -417,6 +416,109 @@ html.js .rev.ya{opacity:1;transform:none}
   .pista li .i{margin:0 14px}
   .cinta{height:auto;min-height:60px;overflow:visible}
   .pausar{display:none}
+}
+
+/* ajustes v4 */
+.hero .deco .izq{display:none;left:-260px;bottom:-300px;width:640px;height:640px}
+@media (min-width:1600px){.hero .deco .izq{display:block}.arte{right:-110px;width:860px}}
+.lin-panel.pocos{grid-template-columns:minmax(0,1fr) 300px;grid-template-rows:auto 1fr}
+.lin-panel.pocos .ilus{grid-column:2;grid-row:1/3;max-width:330px;width:100%}
+.lin-panel.pocos ul{grid-column:1;grid-row:2;align-self:end;border-top:0;padding-top:0;margin-top:14px;gap:12px}
+.lin-panel.pocos li{font-size:19px;line-height:1.3;padding-left:24px}
+.lin-panel.pocos li::before{width:10px;height:10px;top:.45em}
+@media (max-width:899px){
+  .lin-panel.pocos{grid-template-columns:minmax(0,1fr) 120px}
+  .lin-panel.pocos ul{grid-column:1/-1;grid-row:auto}
+  .lin-panel.pocos li{font-size:15.5px}
+}
+
+/* celular compacto */
+@media (max-width:640px){
+  body{font-size:16px}
+  h2{font-size:clamp(27px,8vw,33px);margin-top:10px}
+  .intro{font-size:16px;margin-top:10px}
+  .hero{padding:22px 0 calc(var(--d) + 40px)}
+  .hero h1{font-size:40px;margin-top:12px}
+  .valor{font-size:15.5px;margin-top:14px;line-height:1.5}
+  .acciones{margin-top:18px}
+  .hero .btn{min-height:48px}
+  .somos{padding:calc(var(--d) + 28px) 0 22px}
+  .somos .cont{gap:24px}
+  .somos .texto p{font-size:15.5px;line-height:1.5}
+  .pilares{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:14px;margin:16px -20px 0;padding:0 20px 8px}
+  .pilar{flex:0 0 74%;scroll-snap-align:start}
+  .pilares:focus-visible{outline-offset:-3px}
+  .somos .panel{padding:24px 20px 26px;margin-bottom:-24px}
+  .panel h3{font-size:22px}
+  .inc{gap:14px;margin-top:16px}
+  .inc li{padding-left:50px}
+  .inc li::before{width:38px;height:38px}
+  .inc b{font-size:16px}
+  .inc p,.inc ul{font-size:14px}
+  .servicios{padding:calc(var(--d) + 30px) 0 32px}
+  .explora{margin-top:16px}
+  .linea{margin-bottom:6px}
+  .lin-btn{min-height:56px;padding:6px 12px}
+  .lin-panel{padding:18px 16px}
+  .lin-panel .res{font-size:15.5px;margin-top:6px}
+  .lin-panel ul{margin-top:12px;padding-top:12px;gap:6px}
+  .proceso{padding:30px 0 56px}
+  .linea-proc{margin-top:18px}
+  .paso{padding:0 0 18px 66px}
+  .paso h3{font-size:18px;padding-top:6px}
+  .paso p{font-size:14.5px;margin-top:4px;line-height:1.45}
+  .portal{padding:calc(48px + 20px) 0 calc(var(--d) + 18px)}
+  .accesos{margin-top:14px}
+  .acc{padding:14px 0;gap:4px 12px}
+  .acc h3{font-size:22px}
+  .acc p{font-size:14.5px}
+  .acc .ir{width:44px;height:44px}
+  .nota-portal{margin-top:12px;font-size:13.5px}
+  .faq{padding:calc(var(--d) + 22px) 0 22px}
+  .faq .cont{gap:14px}
+  .faq h2{font-size:27px}
+  .pregs summary{padding:10px 40px 10px 0;font-size:15.5px;min-height:52px}
+  .pregs details p{font-size:15px;padding-bottom:14px}
+  .final{padding:calc(var(--d) + 26px) 0 78px}
+  .fin-cab{gap:20px}
+  .miniatura{width:80px}
+  .pdf h3{font-size:19px}
+  .pdf p{font-size:14px}
+  .vias{margin-top:16px;gap:8px}
+  .via{min-height:60px;padding:8px 14px}
+  .via .ic{width:40px;height:40px}
+  .ubic{margin-top:10px}
+  .pie{padding:22px 0 18px}
+  .pie .cont{gap:12px}
+  .pie .legal{padding-top:12px;font-size:13px}
+  .pie nav a{padding:3px 0;font-size:14px}
+}
+
+@media (max-width:640px){
+  .pilares{scroll-padding-left:20px}
+  .lema-pie{display:none}
+  .somos .texto p{font-size:15px}
+  .paso{padding-bottom:12px}
+  .paso p{font-size:14px}
+  .proceso{padding:26px 0 52px}
+  .portal .intro{font-size:15.5px}
+  .portal .cab-sec{gap:2px}
+  .pregs summary{min-height:48px;padding:8px 40px 8px 0}
+  .lin-panel ul{margin-top:8px;padding-top:10px}
+  .hero .acciones .btn{min-height:46px}
+  .final{padding-bottom:72px}
+}
+
+.arte-caja{position:absolute;inset:0;clip-path:var(--forma);overflow:hidden;pointer-events:none;z-index:0}
+
+@media (min-width:900px) and (max-width:1199px){
+  .explora{grid-template-columns:minmax(0,5fr) minmax(0,7fr);grid-template-rows:repeat(7,60px);column-gap:36px}
+  .lin-btn .nom{font-size:17.5px}
+  .lin-btn .num{font-size:32px;min-width:52px}
+  .lin-btn{gap:12px}
+  .lin-panel{padding:24px 26px 22px}
+  .lin-panel.pocos{grid-template-columns:minmax(0,1fr) 230px}
+  .lin-panel.pocos li{font-size:17px}
 }
 </style>
 <noscript><style>.explora{display:block}.linea{display:block;margin-bottom:10px}.lin-panel{display:grid!important;visibility:visible!important;opacity:1!important;transform:none!important;margin-bottom:16px;clip-path:none!important}.lin-btn .fl{display:none}.paso::before{background:var(--tinta);color:var(--turquesa)}.track .fill{transform:none}</style></noscript>
@@ -637,17 +739,18 @@ html.js .rev.ya{opacity:1;transform:none}
   <div class="deco" aria-hidden="true">
     <div class="puntos" style="left:-40px;top:30px"></div>
     <div class="puntos" style="right:30%;bottom:150px;transform:scaleX(-1)"></div>
+    <div class="par izq" data-par=".05"><svg class="gira rev-g lento" viewBox="-110 -110 220 220" fill="none"><use href="#eng2" stroke="#1b5f58" stroke-width="1.6" stroke-linejoin="round"/></svg></div>
   </div>
-  <div class="arte">
+  <div class="arte-caja"><div class="arte">
     <div class="par" data-par="-.05" aria-hidden="true">
       <svg class="g gira" viewBox="-110 -110 220 220" fill="none"><use href="#eng1" stroke="#0fa99d" stroke-width="1.5" stroke-linejoin="round"/><circle r="70" stroke="#2c5a56" stroke-width=".8"/></svg>
       <svg class="g gira rev-g lento" viewBox="-110 -110 220 220" fill="none"><g transform="scale(.74)"><use href="#eng2" stroke="#898a8c" stroke-opacity=".8" stroke-width="2" stroke-linejoin="round" stroke-dasharray="2 6" stroke-linecap="round"/></g></svg>
     </div>
     <div class="sello"><img src="logo.png" alt="Logo de Maquilogis: un engranaje con dos manos que rodean cajas" width="192" height="192"></div>
     <span class="etq" aria-hidden="true" style="left:24%;top:21%">Supervisión y control</span>
-    <span class="etq" aria-hidden="true" style="right:19%;top:74%">Picos de producción</span>
+    <span class="etq" aria-hidden="true" style="left:34%;top:77%">Picos de producción</span>
     <span class="etq" aria-hidden="true" style="left:12%;top:58%">Reportes de proceso</span>
-  </div>
+  </div></div>
   <div class="cont">
     <div>
       <span class="sobre">Maquilas Logísticas de Colombia S.A.S.</span>
@@ -662,12 +765,12 @@ html.js .rev.ya{opacity:1;transform:none}
 </section>
 
 <div class="cinta-wrap">
+  <button class="pausar" type="button" id="pausar" aria-pressed="false" aria-label="Pausar la cinta de servicios"><svg class="i pausa-i" aria-hidden="true"><use href="#i-pausa"/></svg><svg class="i play" aria-hidden="true"><use href="#i-play"/></svg></button>
   <div class="cinta" id="cinta">
     <div class="pista" aria-hidden="true">
       <ul><li>Maquila y empaque<svg class="i"><use href="#i-cubo"/></svg></li><li>Logística y bodega<svg class="i"><use href="#i-cubo"/></svg></li><li>Calidad<svg class="i"><use href="#i-cubo"/></svg></li><li>Aseo y oficios varios<svg class="i"><use href="#i-cubo"/></svg></li><li>Apoyo comercial<svg class="i"><use href="#i-cubo"/></svg></li><li>Implementación de procesos<svg class="i"><use href="#i-cubo"/></svg></li><li>Consultoría y mejora de procesos<svg class="i"><use href="#i-cubo"/></svg></li></ul>
       <ul><li>Maquila y empaque<svg class="i"><use href="#i-cubo"/></svg></li><li>Logística y bodega<svg class="i"><use href="#i-cubo"/></svg></li><li>Calidad<svg class="i"><use href="#i-cubo"/></svg></li><li>Aseo y oficios varios<svg class="i"><use href="#i-cubo"/></svg></li><li>Apoyo comercial<svg class="i"><use href="#i-cubo"/></svg></li><li>Implementación de procesos<svg class="i"><use href="#i-cubo"/></svg></li><li>Consultoría y mejora de procesos<svg class="i"><use href="#i-cubo"/></svg></li></ul>
     </div>
-    <button class="pausar" type="button" id="pausar" aria-pressed="false" aria-label="Pausar la cinta de servicios"><svg class="i pausa-i" aria-hidden="true"><use href="#i-pausa"/></svg><svg class="i play" aria-hidden="true"><use href="#i-play"/></svg></button>
   </div>
 </div>
 
@@ -679,7 +782,7 @@ html.js .rev.ya{opacity:1;transform:none}
       <h2 id="t-somos">Un aliado para <em>todo el proceso</em> de maquilas</h2></div>
       <p class="rev" style="--d:1;margin-top:20px">Maquilogis es Maquilas Logísticas de Colombia S.A.S., su aliado en logística y recurso humano, temporal o por días, en cada etapa del proceso de maquila. Atendemos empresas en Itagüí, Medellín y el Valle de Aburrá.</p>
       <p class="rev" style="--d:2">Contamos con personal capacitado para una amplia variedad de funciones operativas, pensado para los picos de producción y despacho de empresas industriales y comerciales. Además de operar, ofrecemos asesoría y consultoría para optimizar y automatizar sus procesos.</p>
-      <div class="pilares" data-esc>
+      <div class="pilares" data-esc tabindex="0" role="group" aria-label="Pilares de Maquilogis">
         <div class="pilar rev" style="--d:3"><h3>Logística</h3><p>Apoyo en manufactura, empaque, bodega y despachos.</p></div>
         <div class="pilar rev" style="--d:4"><h3>Recurso humano temporal o por días</h3><p>Personal operativo y de control para ejecutar las actividades de su proceso.</p></div>
         <div class="pilar rev" style="--d:5"><h3>Control y reportes</h3><p>Supervisión del proceso y reportes de unidades ensambladas, averiadas o defectuosas.</p></div>
@@ -747,7 +850,7 @@ html.js .rev.ya{opacity:1;transform:none}
 
       <div class="linea" data-tono="c">
         <button class="lin-btn" type="button" id="lb3" aria-expanded="false" aria-controls="lp3"><span class="num" aria-hidden="true">03</span><span class="nom">Calidad</span><svg class="i fl" aria-hidden="true"><use href="#i-flecha"/></svg></button>
-        <div class="lin-panel" id="lp3" role="region" aria-labelledby="lb3">
+        <div class="lin-panel pocos" id="lp3" role="region" aria-labelledby="lb3">
           <div><h3>Calidad</h3><p class="res">Apoyo productivo y trazabilidad de lo que sale de la línea.</p></div>
           <svg class="ilus" viewBox="0 0 240 180" aria-hidden="true">
             <rect x="52" y="24" width="104" height="138" rx="8"/><rect x="82" y="14" width="44" height="18" rx="6" class="rl"/>
@@ -763,14 +866,19 @@ html.js .rev.ya{opacity:1;transform:none}
 
       <div class="linea" data-tono="a">
         <button class="lin-btn" type="button" id="lb4" aria-expanded="false" aria-controls="lp4"><span class="num" aria-hidden="true">04</span><span class="nom">Aseo y oficios varios</span><svg class="i fl" aria-hidden="true"><use href="#i-flecha"/></svg></button>
-        <div class="lin-panel" id="lp4" role="region" aria-labelledby="lb4">
+        <div class="lin-panel pocos" id="lp4" role="region" aria-labelledby="lb4">
           <div><h3>Aseo y oficios varios</h3><p class="res">Oficios varios y aseo donde su operación lo requiera.</p></div>
           <svg class="ilus" viewBox="0 0 240 180" aria-hidden="true">
-            <path d="M52 14l26 100"/><path d="M44 116l46-14 12 42-52 16z"/><path d="M58 112l8 42M72 108l8 42M86 104l8 42" />
-            <path d="M138 80h64l-9 74h-46z"/><ellipse cx="170" cy="80" rx="32" ry="8"/><path d="M142 80c0-34 56-34 56 0"/>
-            <path d="M152 104h36" class="ac"/>
-            <path class="ac" d="M120 34l3 9 9 3-9 3-3 9-3-9-9-3 9-3zM206 40l2 6 6 2-6 2-2 6-2-6-6-2 6-2z"/>
-            <circle class="ac" cx="186" cy="26" r="5"/><circle class="ac" cx="150" cy="22" r="3"/>
+            <path d="M58 10v96"/><circle cx="58" cy="10" r="3.500"/>
+            <rect x="40" y="106" width="36" height="12" rx="2"/><path d="M40 118l-8 42h52l-8-42z"/>
+            <path class="ac" d="M46 124l-5 36M58 124v36M70 124l5 36"/>
+            <rect x="98" y="98" width="34" height="62" rx="7"/><rect x="108" y="82" width="14" height="16"/><path d="M104 82h28v-10h-28zM132 74h14l5 8-9 4"/>
+            <path class="ac" d="M106 120h18M106 130h12M106 140h16"/>
+            <circle class="ac" cx="160" cy="68" r="2.500"/><circle class="ac" cx="166" cy="80" r="2.500"/><circle class="ac" cx="158" cy="90" r="2.500"/>
+            <path d="M166 110h52l-7 50h-38z"/><ellipse cx="192" cy="110" rx="26" ry="6"/><path d="M168 110c0-28 48-28 48 0"/>
+            <path class="ac" d="M176 128h32M178 140h28"/>
+            <circle class="ac" cx="180" cy="94" r="4"/><circle class="ac" cx="198" cy="86" r="5"/><circle class="ac" cx="212" cy="98" r="3"/>
+            <path class="ac" d="M92 40l3 9 9 3-9 3-3 9-3-9-9-3 9-3z"/>
           </svg>
           <ul class="una"><li>Plantas de producción</li><li>Oficinas</li><li>Hogar</li></ul>
           <span class="gnum" aria-hidden="true">04</span>
@@ -779,7 +887,7 @@ html.js .rev.ya{opacity:1;transform:none}
 
       <div class="linea" data-tono="b">
         <button class="lin-btn" type="button" id="lb5" aria-expanded="false" aria-controls="lp5"><span class="num" aria-hidden="true">05</span><span class="nom">Apoyo comercial</span><svg class="i fl" aria-hidden="true"><use href="#i-flecha"/></svg></button>
-        <div class="lin-panel" id="lp5" role="region" aria-labelledby="lb5">
+        <div class="lin-panel pocos" id="lp5" role="region" aria-labelledby="lb5">
           <div><h3>Apoyo comercial</h3><p class="res">Personal para llevar su mensaje a la calle.</p></div>
           <svg class="ilus" viewBox="0 0 240 180" aria-hidden="true">
             <path d="M26 74h18v38H26a4 4 0 01-4-4V78a4 4 0 014-4z"/><path d="M44 74l66-34v106l-66-34"/><path d="M60 114l8 34h18l-6-30"/>
@@ -794,7 +902,7 @@ html.js .rev.ya{opacity:1;transform:none}
 
       <div class="linea" data-tono="c">
         <button class="lin-btn" type="button" id="lb6" aria-expanded="false" aria-controls="lp6"><span class="num" aria-hidden="true">06</span><span class="nom">Implementación de procesos</span><svg class="i fl" aria-hidden="true"><use href="#i-flecha"/></svg></button>
-        <div class="lin-panel" id="lp6" role="region" aria-labelledby="lb6">
+        <div class="lin-panel pocos" id="lp6" role="region" aria-labelledby="lb6">
           <div><h3>Implementación de procesos</h3><p class="res">Una modalidad que aplica a cualquiera de las líneas anteriores.</p></div>
           <svg class="ilus" viewBox="0 0 240 180" aria-hidden="true">
             <rect x="74" y="50" width="92" height="110" rx="3"/><path d="M62 160h116"/>
@@ -932,7 +1040,7 @@ html.js .rev.ya{opacity:1;transform:none}
   <div class="cont">
     <div>
       <a class="marca" href="#inicio" aria-label="Maquilogis, volver al inicio"><img src="logo.png" alt="" width="42" height="42"><b>Maquilogis</b></a>
-      <p style="margin-top:12px">Aliados en maquila, logística y talento operativo.</p>
+      <p class="lema-pie" style="margin-top:12px">Aliados en maquila, logística y talento operativo.</p>
     </div>
     <nav aria-label="Pie de página"><ul>
       <li><a href="#servicios">Servicios</a></li><li><a href="#como-trabajamos">Cómo trabajamos</a></li><li><a href="#incluye">Qué incluye</a></li><li><a href="#portal">Portal</a></li><li><a href="#preguntas-frecuentes">Preguntas frecuentes</a></li><li><a href="#contacto">Contacto</a></li>
